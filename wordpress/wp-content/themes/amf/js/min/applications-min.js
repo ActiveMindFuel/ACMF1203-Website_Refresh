@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){jQuery(".slickslider").slick({slidesToShow:1,slidesToScroll:1,arrows:!0,dots:!0,autoplay:!0,autoplaySpeed:5e3}),jQuery(".parent-container").magnificPopup({delegate:"a",type:"image"})});

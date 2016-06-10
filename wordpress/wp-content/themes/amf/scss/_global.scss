@@ -9,19 +9,11 @@ Primary use:	Website refresh
 ---------------------------------------------------------------------
 [Table of contents]
 
-1.  Brand Colors
-2.	Background Colors
-3.	Other Colors
+1.  Global
+2.  Custom Classes
 
 ---------------------------------------------------------------------
-[1. Brand Colors] */
+[1. Global] */
 
-$black : #000;
-$navbarlink : #fff;
-$navbarhover : #00ccff;
-
-/* ---------------------------------------------------------------------
-[2. Background Colors] */
-
-/* ---------------------------------------------------------------------
-[3. Other Colors] */
+html,body { margin: 0 auto; width: 100%; padding: 0; }
+.container-fluid { max-width: 1420px; margin: 0 auto; }

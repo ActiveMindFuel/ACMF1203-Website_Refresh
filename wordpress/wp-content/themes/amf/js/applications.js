@@ -9,18 +9,33 @@ Primary use:	Website refresh
 ---------------------------------------------------------------------
 [Table of contents]
 
-1.  Custom jQuery
+1.	3rd Party Library Settings
+2.  Custom jQuery
+*/
 
----------------------------------------------------------------------
-[1. Custom jQuery] */
+jQuery(document).ready(function(){
 
-$(document).ready(function(){
-  $('.your-class').slick({
+	/* ---------------------------------------------------------------------
+	[1. 3rd Party Library Settings] */
+
+	//slick slider settings
+  	jQuery('.slickslider').slick({
 		slidesToShow: 1,
   		slidesToScroll: 1,
-  		arrows: false,
+  		arrows: true,
   		dots: true,
   		autoplay: true,
   		autoplaySpeed: 5000,
 	});
+
+	//magnific-popup initialize
+	jQuery('.parent-container').magnificPopup({
+		delegate: 'a', // child items selector, by clicking on it popup will open
+		type: 'image'
+	});
+
+	/* ---------------------------------------------------------------------
+	[2. Custom jQuery] */
+
+
 });

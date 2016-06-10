@@ -1,10 +1,10 @@
 <!doctype html>
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slick.css">
+	
 
-<!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
+	<!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+	<!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
+	<!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
+	<!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 
 	<head>
 		<meta charset="utf-8">
@@ -44,55 +44,48 @@
 	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 
 		<div id="container">
+			<div id="navigation">
+     			<nav class="navbar navbar-default navbar-static-top">
+     				<div class="container-fluid">
+     					<div class="navbar-header">
+     						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+     							<span class="sr-only">Toggle navigation</span>
+     							<span class="icon-bar"></span>
+     							<span class="icon-bar"></span>
+     							<span class="icon-bar"></span>
+     						</button>
+     						<a class="navbar-brand" href="<?php echo home_url(); ?>">
+     						   <div class="nav-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/svg/nav-logo.svg"></div>
+     						</a>
+     					</div>
+     					<?php
+     						wp_nav_menu( array(
+     						 	'menu'              => 'primary',
+     						 	'theme_location'    => 'primary',
+     						 	'depth'             => 2,
+     						 	'container'         => 'div',
+     						 	'container_class'   => 'collapse navbar-collapse',
+     						 	'container_id'      => 'bs-example-navbar-collapse-1',
+     						 	'menu_class'        => 'nav navbar-nav navbar-right',
+     						 	'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+     						 	'walker'            => new wp_bootstrap_navwalker())
+     						);
+     					?>
+     				</div>
+     			</nav>
+     		</div>
+			
 
-			<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+			<!--
+			<div class="slickslider">
+				<div>your content</div>
+				<div>your content</div>
+				<div>your content</div>
+			</div>
 
-				<div id="inner-header" class="wrap cf">
-
-					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
-					<p id="logo" class="h1" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
-
-					<?php // if you'd like to use the site description you can un-comment it below ?>
-					<?php // bloginfo('description'); ?>
-
-
-					<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<?php wp_nav_menu(array(
-    					         'container' => false,                           // remove nav container
-    					         'container_class' => 'menu cf',                 // class of container (should you choose to use it)
-    					         'menu' => __( 'The Main Menu', 'bonestheme' ),  // nav name
-    					         'menu_class' => 'nav top-nav cf',               // adding custom nav class
-    					         'theme_location' => 'main-nav',                 // where it's located in the theme
-    					         'before' => '',                                 // before the menu
-        			               'after' => '',                                  // after the menu
-        			               'link_before' => '',                            // before each link
-        			               'link_after' => '',                             // after each link
-        			               'depth' => 0,                                   // limit the depth of the nav
-    					         'fallback_cb' => ''                             // fallback function (if there is one)
-						)); ?>
-
-						<?php
-               				wp_nav_menu( array(
-               				   'menu'              => 'primary',
-               				   'theme_location'    => 'primary',
-               				   'depth'             => 2,
-               				   'container'         => 'div',
-               				   'container_class'   => 'collapse navbar-collapse',
-               				   'container_id'      => 'bs-example-navbar-collapse-1',
-               				   'menu_class'        => 'nav navbar-nav',
-               				   'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-               				   'walker'            => new wp_bootstrap_navwalker())
-               				);
-               			?>
-
-					</nav>
-
-					<div class="your-class">
-						<div>your content</div>
-						<div>your content</div>
-						<div>your content</div>
-					</div>
-
-				</div>
-
-			</header>
+			<div class="parent-container">
+				<a href="<?php// echo get_stylesheet_directory_uri(); ?>/library/images/apple-touch-icon.png">Open popup 1</a>
+				<a href="<?php// echo get_stylesheet_directory_uri(); ?>/library/images/nothumb.gif">Open popup 2</a>
+				<a href="<?php// echo get_stylesheet_directory_uri(); ?>/library/images/win8-tile-icon.png">Open popup 3</a>
+			</div>
+			-->

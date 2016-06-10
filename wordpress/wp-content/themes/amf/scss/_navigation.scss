@@ -15,6 +15,23 @@ Primary use:	Website refresh
 ---------------------------------------------------------------------
 [1. Navigation] */
 
+#navigation { 
+    /*navbar*/
+    .navbar-default { background-color: $black; padding: 30px 0; }
+    /* link */
+    .navbar-default .navbar-nav > li > a { color: $navbarlink; }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus { color: $navbarhover; }
+    .navbar-default .navbar-nav > .active > a, 
+    .navbar-default .navbar-nav > .active > a:hover, 
+    .navbar-default .navbar-nav > .active > a:focus { color: #555; background-color: #E7E7E7; }
+    .navbar-default .navbar-nav > .open > a, 
+    .navbar-default .navbar-nav > .open > a:hover, 
+    .navbar-default .navbar-nav > .open > a:focus { color: #555; background-color: #D5D5D5; }
+    /*logo*/
+    .nav-logo { margin-top: -15px; }
+}
+
 /* ---------------------------------------------------------------------
 [1. Bootstrap overwrite styles] 
 	
@@ -110,3 +127,5 @@ Default style
         color: #333;
     }
 }
+
+
