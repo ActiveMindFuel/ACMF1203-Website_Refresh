@@ -22,7 +22,7 @@ jQuery(document).ready(function(){
   	jQuery('.slickslider').slick({
 		slidesToShow: 1,
   		slidesToScroll: 1,
-  		arrows: true,
+  		arrows: false,
   		dots: true,
   		autoplay: true,
   		autoplaySpeed: 5000,
@@ -34,8 +34,25 @@ jQuery(document).ready(function(){
 		type: 'image'
 	});
 
+	//hamburger
+	var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
+
+    var hamburgers = document.querySelectorAll(".hamburger");
+    if (hamburgers.length > 0) {
+      forEach(hamburgers, function(hamburger) {
+        hamburger.addEventListener("click", function() {
+          this.classList.toggle("is-active");
+        }, false);
+      });
+    };
+
 	/* ---------------------------------------------------------------------
 	[2. Custom jQuery] */
 
+	//pill tabs (samples menu)
+	jQuery('#samples-module a').click(function (e) {
+		e.preventDefault()
+		jQuery(this).tab('show')
+	});
 
 });

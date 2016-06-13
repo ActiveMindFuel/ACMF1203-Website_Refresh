@@ -8,15 +8,19 @@ Assigned to:	Active Mind Fuel (AG)
 Primary use:	Website refresh
 ---------------------------------------------------------------------
 [Table of contents]
+
+1.  Masthead
+2.  Headers
 */
 
 @import 'vars';
 @import 'mixins';
 @import 'fonts';
 @import 'global';
-@import 'navigation';
-@import 'headers';
-@import 'about';
-@import 'slider';
-@import 'samples';
-@import 'bootstrap-custom';
+
+/* ---------------------------------------------------------------------
+[1. Masthead] */
+
+#masthead { background-color: $grey; padding: 50px 0; width: 100%; }
+.header-img { text-align: center; }
+.header-logo { width: 100%; max-width: 579px; }

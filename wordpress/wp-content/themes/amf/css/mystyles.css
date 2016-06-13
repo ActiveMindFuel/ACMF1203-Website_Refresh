@@ -21,7 +21,7 @@ Primary use:	Website refresh
 [Table of contents]
 
 1.  Brand Colors
-2.	Background Colors
+2.	Neutral Colors
 3.	Other Colors
 
 ---------------------------------------------------------------------
@@ -176,6 +176,16 @@ html, body {
   max-width: 1420px;
   margin: 0 auto; }
 
+footer {
+  background-color: #d8d8d8;
+  text-align: center;
+  padding: 50px 0; }
+  footer .footer-logo {
+    padding: 30px 0; }
+
+section {
+  padding: 50px 0; }
+
 /*------------------------------------------------------------------
 [Master Stylesheet]
 
@@ -188,17 +198,21 @@ Primary use:	Website refresh
 [Table of contents]
 
 1.  Navigation
-2.  Bootstrap overwrite styles
+2.  Hamburgers css animation appended
+3.  Bootstrap overwrite styles
 
 ---------------------------------------------------------------------
 [1. Navigation] */
 #navigation {
   /*navbar*/
   /* link */
-  /*logo*/ }
+  /*logo*/
+  /*navbar mobile*/ }
   #navigation .navbar-default {
     background-color: #000;
     padding: 30px 0; }
+  #navigation .navbar {
+    margin-bottom: 0; }
   #navigation .navbar-default .navbar-nav > li > a {
     color: #fff; }
   #navigation .navbar-default .navbar-nav > li > a:hover,
@@ -207,8 +221,8 @@ Primary use:	Website refresh
   #navigation .navbar-default .navbar-nav > .active > a,
   #navigation .navbar-default .navbar-nav > .active > a:hover,
   #navigation .navbar-default .navbar-nav > .active > a:focus {
-    color: #555;
-    background-color: #E7E7E7; }
+    color: #f0347f;
+    background-color: #000; }
   #navigation .navbar-default .navbar-nav > .open > a,
   #navigation .navbar-default .navbar-nav > .open > a:hover,
   #navigation .navbar-default .navbar-nav > .open > a:focus {
@@ -216,9 +230,109 @@ Primary use:	Website refresh
     background-color: #D5D5D5; }
   #navigation .nav-logo {
     margin-top: -15px; }
+  #navigation .navbar-default .navbar-toggle {
+    border: none; }
+  #navigation .navbar-default .navbar-toggle:hover,
+  #navigation .navbar-default .navbar-toggle:focus {
+    background-color: #DDD; }
+  #navigation .navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff; }
+  #navigation .navbar-default .navbar-collapse, #navigation .navbar-default .navbar-form {
+    border: none;
+    padding-top: 5px; }
 
 /* ---------------------------------------------------------------------
-[1. Bootstrap overwrite styles] 
+[2. Hamburgers css animation appended] */
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, -webkit-filter;
+  transition-property: opacity, filter;
+  transition-property: opacity, filter, -webkit-filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; }
+  .hamburger:hover {
+    opacity: 0.7; }
+  .hamburger:focus {
+    outline: none; }
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative; }
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; }
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease; }
+
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block; }
+
+.hamburger-inner::before {
+  top: -10px; }
+
+.hamburger-inner::after {
+  bottom: -10px; }
+
+/*
+ * Squeeze
+ */
+.hamburger--squeeze .hamburger-inner {
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--squeeze .hamburger-inner::before {
+  transition: top 0.1s 0.14s ease, opacity 0.1s ease; }
+
+.hamburger--squeeze .hamburger-inner::after {
+  transition: bottom 0.1s 0.14s ease, -webkit-transform 0.1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: bottom 0.1s 0.14s ease, transform 0.1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: bottom 0.1s 0.14s ease, transform 0.1s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.1s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--squeeze.is-active .hamburger-inner {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transition-delay: 0.14s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+.hamburger--squeeze.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.1s ease, opacity 0.1s 0.14s ease; }
+
+.hamburger--squeeze.is-active .hamburger-inner::after {
+  bottom: 0;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  transition: bottom 0.1s ease, -webkit-transform 0.1s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: bottom 0.1s ease, transform 0.1s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: bottom 0.1s ease, transform 0.1s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.1s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+/* ---------------------------------------------------------------------
+[3. Bootstrap overwrite styles] 
 	
 Version notes:
 - Online tool: Bootstrap 3.3.6 (maintained)
@@ -309,6 +423,301 @@ Default style
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #333; } }
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Masthead
+2.  Headers
+*/
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Brand Colors
+2.	Neutral Colors
+3.	Other Colors
+
+---------------------------------------------------------------------
+[1. Brand Colors] */
+/* ---------------------------------------------------------------------
+[2. Background Colors] */
+/* ---------------------------------------------------------------------
+[3. Other Colors] */
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+*/
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Fonts
+2.  Load Fonts
+
+---------------------------------------------------------------------
+[1. Fonts] */
+/* Open Sans */
+.opensans-bld {
+  font-family: 'open_sansbold'; }
+
+.opensans-bld-ital {
+  font-family: 'open_sansbold_italic'; }
+
+.opensans-ex-bld {
+  font-family: 'open_sansextrabold'; }
+
+.opensans-ex-bld-ital {
+  font-family: 'open_sansextrabold_italic'; }
+
+.opensans-ital {
+  font-family: 'open_sansitalic'; }
+
+.opensans-lgt {
+  font-family: 'open_sanslight'; }
+
+.opensans-lgt-ital {
+  font-family: 'open_sanslight_italic'; }
+
+.opensans-reg {
+  font-family: 'open_sansregular'; }
+
+.opensans-semi {
+  font-family: 'open_sanssemibold'; }
+
+.opensans-semi-ital {
+  font-family: 'open_sanssemibold_italic'; }
+
+/* Great Vibes (italic) */
+.greatvibes {
+  font-family: 'great_vibesregular'; }
+
+/* ---------------------------------------------------------------------
+[3. Load Fonts] */
+/* Load Open Sans */
+@font-face {
+  font-family: 'open_sansbold';
+  src: url("../fonts/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansbold_italic';
+  src: url("../fonts/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-bolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansextrabold';
+  src: url("../fonts/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansextrabold_italic';
+  src: url("../fonts/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansitalic';
+  src: url("../fonts/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanslight';
+  src: url("../fonts/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanslight_italic';
+  src: url("../fonts/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans-lightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansregular';
+  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url("../fonts/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanssemibold_italic';
+  src: url("../fonts/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-semibolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+/* Load Great Vibes */
+@font-face {
+  font-family: 'great_vibesregular';
+  src: url("../fonts/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Global
+2.  Custom Classes
+
+---------------------------------------------------------------------
+[1. Global] */
+html, body {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0; }
+
+.container-fluid {
+  max-width: 1420px;
+  margin: 0 auto; }
+
+footer {
+  background-color: #d8d8d8;
+  text-align: center;
+  padding: 50px 0; }
+  footer .footer-logo {
+    padding: 30px 0; }
+
+section {
+  padding: 50px 0; }
+
+/* ---------------------------------------------------------------------
+[1. Masthead] */
+#masthead {
+  background-color: #f5f5f5;
+  padding: 50px 0;
+  width: 100%; }
+
+.header-img {
+  text-align: center; }
+
+.header-logo {
+  width: 100%;
+  max-width: 579px; }
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Typograpghy
+2.  spacing/padding
+
+---------------------------------------------------------------------
+[1. Typograpghy] */
+h2 {
+  text-align: center;
+  font-weight: 700; }
+
+/* ---------------------------------------------------------------------
+[1. spacing/padding] */
+.three-col {
+  padding-bottom: 30px; }
+
+.single-col {
+  text-align: center; }
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Slider
+
+---------------------------------------------------------------------
+[1. Slider] */
+#slider-module {
+  /* slick slider */ }
+  #slider-module .slide {
+    width: 100%;
+    height: 400px;
+    background-color: #00ccff; }
+    #slider-module .slide:nth-child(2) {
+      background-color: #b6d44f; }
+    #slider-module .slide:nth-child(3) {
+      background-color: #b83535; }
+  #slider-module .slick-dots {
+    left: -110px !important;
+    margin-left: 50%;
+    position: absolute;
+    z-index: 100;
+    margin-top: -30px; }
+    #slider-module .slick-dots li {
+      display: inline-block !important;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      height: 8px;
+      width: 8px;
+      margin: 0 10px; }
+      #slider-module .slick-dots li button {
+        display: none;
+        font-size: 0px; }
+  #slider-module .slick-dots .slick-active {
+    border: 1px solid #fff !important;
+    background-color: #fff !important; }
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Sample sub navigation
+2.  Thumbnails
+3.  Sample pages
+
+---------------------------------------------------------------------
+[1. Navigation] */
 /*------------------------------------------------------------------
 [Master Stylesheet]
 

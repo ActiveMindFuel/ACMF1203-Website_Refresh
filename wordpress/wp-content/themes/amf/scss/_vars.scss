@@ -10,18 +10,32 @@ Primary use:	Website refresh
 [Table of contents]
 
 1.  Brand Colors
-2.	Background Colors
+2.	Neutral Colors
 3.	Other Colors
 
 ---------------------------------------------------------------------
 [1. Brand Colors] */
 
-$black : #000;
-$navbarlink : #fff;
-$navbarhover : #00ccff;
+$blue: #00ccff;
+$green-lt: #b6d44f;
+$green-dk: #51ab14;
+$purple: #724d92;
+$red: #b83535;
+$pink: #f0347f;
+$orange: #e66206;
 
 /* ---------------------------------------------------------------------
 [2. Background Colors] */
 
+$navbarlink: #fff;
+$navbarhover: #00ccff;
+$navbarfocus: #f0347f;
+$hamburger: #fff;
+$footer: #d8d8d8;
+
 /* ---------------------------------------------------------------------
 [3. Other Colors] */
+
+$black: #000;
+$white: #fff;
+$grey: #f5f5f5;

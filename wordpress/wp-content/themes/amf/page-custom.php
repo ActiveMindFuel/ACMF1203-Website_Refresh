@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Custom Page Example
+ Template Name: Home Page
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -13,89 +13,150 @@
 */
 ?>
 
-<?php get_header(); ?>
-
-			<div id="content">
-
-				<div id="inner-content" class="wrap cf">
-
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-								<header class="article-header">
-
-									<h1 class="page-title"><?php the_title(); ?></h1>
-
-									<p class="byline vcard">
-										<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-									</p>
-
-
-								</header>
-
-								<section class="entry-content cf" itemprop="articleBody">
-									<?php
-										// the content (pretty self explanatory huh)
-										the_content();
-
-										/*
-										 * Link Pages is used in case you have posts that are set to break into
-										 * multiple pages. You can remove this if you don't plan on doing that.
-										 *
-										 * Also, breaking content up into multiple pages is a horrible experience,
-										 * so don't do it. While there are SOME edge cases where this is useful, it's
-										 * mostly used for people to get more ad views. It's up to you but if you want
-										 * to do it, you're wrong and I hate you. (Ok, I still love you but just not as much)
-										 *
-										 * http://gizmodo.com/5841121/google-wants-to-help-you-avoid-stupid-annoying-multiple-page-articles
-										 *
-										*/
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
-									?>
-								</section>
-
-
-								<footer class="article-footer">
-
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-
-								</footer>
-
-								<?php comments_template(); ?>
-
-							</article>
-
-							<?php endwhile; else : ?>
-
-									<article id="post-not-found" class="hentry cf">
-											<header class="article-header">
-												<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-										</header>
-											<section class="entry-content">
-												<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the page-custom.php template.', 'bonestheme' ); ?></p>
-										</footer>
-									</article>
-
-							<?php endif; ?>
-
-						</main>
-
-						<?php get_sidebar(); ?>
-
+<?php get_header(); ?><div class="wrap-header">
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- HEADER -->
+	<section id="masthead">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="header-img">
+						<img class="header-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/svg/@AMF-logo-black.svg" alt="Active Mind Fuel Logo">
+					</div>								
 				</div>
-
 			</div>
-
-
+		</div>
+	</section>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- ABOUT MODULE -->
+	<section id="about-module">
+		<div class="container-fluid">
+			<div class="three-col">
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<h2>Stimulate</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores amet eveniet, sit et dolore nihil reiciendis blanditiis quasi praesentium, non magni, illum laborum quidem temporibus atque similique optio repellendus eius?
+						</p>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<h2>Communicate</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel suscipit minima, reprehenderit provident. Soluta placeat beatae maxime, rerum illum reprehenderit, vel quia eum eius repellendus unde perferendis ratione voluptate veritatis.
+						</p>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<h2>Motivate</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ut facere ullam inventore et iusto, asperiores explicabo ex voluptate iste, suscipit porro dignissimos nulla molestiae vitae numquam incidunt quibusdam! Impedit!
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="single-col">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nam enim nostrum soluta amet, placeat natus animi illo quas, ullam porro praesentium, ducimus error temporibus quis eum! Odit vel illo nulla corrupti praesentium officiis neque, tempore soluta, adipisci aspernatur eum natus earum facere enim, saepe vitae accusamus similique. Quasi unde possimus dicta nemo temporibus libero inventore. At consectetur ipsa eos mollitia. Vero quod, fugiat nobis nemo in soluta possimus fuga ea illum deserunt officia. Fugit aperiam repellat iusto quis voluptas quia earum consequuntur. Libero debitis fuga error, aut quia odio repudiandae labore sit rerum, sint, illo, quis tempora a eos!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- SLIDER MODULE -->
+	<section id="slider-module">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="slickslider">
+					<div class="slide">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12"> your content</div>
+							</div>
+						</div>
+					</div>
+					<div class="slide">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12"> your content</div>
+							</div>
+						</div>
+					</div>
+					<div class="slide">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12"> your content</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- SAMPLES MODULE -->
+	<section id="samples-module">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<ul class="nav nav-pills pull-right">
+					  <li role="presentation" class="active"><a href="#home">Home</a></li>
+					  <li role="presentation"><a href="#profile">Profile</a></li>
+					  <li role="presentation"><a href="#">Messages</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="tab-content tabs-module-two-flex-container">
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="home">Home</div>
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="profile">
+					<div class="row">
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+							<div class="thumbnail">
+    							<img src="..." alt="...">
+    							<div class="caption">
+    								<h3>Thumbnail label</h3>
+    								<p>...</p>
+    								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+    							</div>
+    						</div>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+							<div class="thumbnail">
+    							<img src="..." alt="...">
+    							<div class="caption">
+    								<h3>Thumbnail label</h3>
+    								<p>...</p>
+    								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+    							</div>
+    						</div>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+							<div class="thumbnail">
+    							<img src="..." alt="...">
+    							<div class="caption">
+    								<h3>Thumbnail label</h3>
+    								<p>...</p>
+    								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+    							</div>
+    						</div>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+							<div class="thumbnail">
+    							<img src="..." alt="...">
+    							<div class="caption">
+    								<h3>Thumbnail label</h3>
+    								<p>...</p>
+    								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+    							</div>
+    						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 <?php get_footer(); ?>
+
+

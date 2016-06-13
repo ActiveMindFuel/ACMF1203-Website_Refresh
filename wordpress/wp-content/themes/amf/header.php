@@ -48,14 +48,13 @@
      			<nav class="navbar navbar-default navbar-static-top">
      				<div class="container-fluid">
      					<div class="navbar-header">
-     						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-     							<span class="sr-only">Toggle navigation</span>
-     							<span class="icon-bar"></span>
-     							<span class="icon-bar"></span>
-     							<span class="icon-bar"></span>
+     						<button type="button" class="hamburger hamburger--squeeze collapsed pull-right" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><!-- navbar-toggle -->
+     							<span class="hamburger-box">
+  									<span class="hamburger-inner"></span>
+  								</span>
      						</button>
      						<a class="navbar-brand" href="<?php echo home_url(); ?>">
-     						   <div class="nav-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/svg/nav-logo.svg"></div>
+     						   <div class="nav-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/svg/nav-logo.svg" alt="Active Mind Fuel Logo"></div>
      						</a>
      					</div>
      					<?php
@@ -77,15 +76,20 @@
 			
 
 			<!--
-			<div class="slickslider">
-				<div>your content</div>
-				<div>your content</div>
-				<div>your content</div>
-			</div>
+			
 
 			<div class="parent-container">
 				<a href="<?php// echo get_stylesheet_directory_uri(); ?>/library/images/apple-touch-icon.png">Open popup 1</a>
 				<a href="<?php// echo get_stylesheet_directory_uri(); ?>/library/images/nothumb.gif">Open popup 2</a>
 				<a href="<?php// echo get_stylesheet_directory_uri(); ?>/library/images/win8-tile-icon.png">Open popup 3</a>
 			</div>
+			
+			<span class="sr-only">Toggle navigation</span>
+     							<span class="icon-bar"></span>
+     							<span class="icon-bar"></span>
+     							<span class="icon-bar"></span>
+
+			<span class="hamburger-box">
+  									<span class="hamburger-inner"></span>
+  								</span>
 			-->
