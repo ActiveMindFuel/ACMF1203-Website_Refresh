@@ -30,6 +30,7 @@
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- ABOUT MODULE -->
 	<section id="about-module">
+		<div id="about"></div>
 		<div class="container-fluid">
 			<div class="three-col">
 				<div class="row">
@@ -98,19 +99,123 @@
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- SAMPLES MODULE -->
 	<section id="samples-module">
+		<div id="samples"></div>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<?php
+     					wp_nav_menu( array(
+     					 	'menu'              => 'secondary',
+     					 	'theme_location'    => 'secondary',
+     					 	'container_class'   => 'collapse navbar-collapse',
+     					 	'menu_class'        => 'nav nav-pills pull-right')
+     					);
+     				?>
+     				<!--
 					<ul class="nav nav-pills pull-right">
 					  <li role="presentation" class="active"><a href="#home">Home</a></li>
 					  <li role="presentation"><a href="#profile">Profile</a></li>
 					  <li role="presentation"><a href="#">Messages</a></li>
 					</ul>
+					-->
 				</div>
 			</div>
 			<div class="tab-content tabs-module-two-flex-container">
-				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="home">Home</div>
-				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="profile">
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="interactive">
+					<?php
+						$args = array(
+							'post_type' => 'capabilities',
+							'cat' => '4',
+							'post_status' => 'publish',
+							//'posts_per_page' => 14,
+							'order' => 'DESC',
+							'paged' => get_query_var('page')
+						);
+
+						$loop = new WP_Query( $args );
+						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
+					?>
+						<div>
+							<?php //if (have_posts()) : while (have_posts()) : the_post(); ?>
+							<div class="post">
+								<h1 class="page-title"><?php the_title(); ?></h1>
+								<p class="byline vcard">
+									<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
+								</p>
+								<?php
+									the_content();
+									wp_link_pages( array(
+										'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
+										'after'       => '</div>',
+										'link_before' => '<span>',
+										'link_after'  => '</span>',
+									) );
+								?>
+			    			   	<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+								<?php comments_template(); ?>
+							</div>
+						</div>
+					<?php endwhile; wp_reset_postdata(); ?>
+					<!-- pagination -->
+					<?php //wp_pagenavi( array( 'query' => $loop ) ); ?>
+					<?php //wp_reset_postdata(); ?>
+					<?php //$wp_query = null; $wp_query = $temp; ?>
+					<?php endif; ?>
+				</div>
+
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="motion">
+					<?php
+						$args = array(
+							'post_type' => 'capabilities',
+							'cat' => '5',
+							'post_status' => 'publish',
+							'posts_per_page' => 2,
+							'order' => 'DESC',
+							'paged' => get_query_var('page')
+						);
+
+						$loop = new WP_Query( $args );
+						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
+					?>
+						<div>
+							<?php //if (have_posts()) : while (have_posts()) : the_post(); ?>
+							<div class="post">
+								<h1 class="page-title"><?php the_title(); ?></h1>
+								<p class="byline vcard">
+									<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
+								</p>
+								<?php
+									the_content();
+									wp_link_pages( array(
+										'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
+										'after'       => '</div>',
+										'link_before' => '<span>',
+										'link_after'  => '</span>',
+									) );
+								?>
+			    			   	<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+								<?php comments_template(); ?>
+							</div>
+						</div>
+						<p><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+					<?php endwhile; wp_reset_postdata(); ?>
+					<!-- pagination -->
+					<?php //wp_pagenavi( array( 'query' => $loop ) ); ?>
+					<?php //wp_reset_postdata(); ?>
+					<?php //$wp_query = null; $wp_query = $temp; ?>
+					<?php endif; ?>
+				</div>
+
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="environments">
+					<?php
+						query_posts('cat=6');
+						while (have_posts()) : the_post();
+						the_content();
+						endwhile;
+					?>
+				</div>
+
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="web">
 					<div class="row">
 						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
 							<div class="thumbnail">

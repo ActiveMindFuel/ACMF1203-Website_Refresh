@@ -55,4 +55,6 @@ jQuery(document).ready(function(){
 		jQuery(this).tab('show')
 	});
 
+	jQuery('#samples-module .nav-pills li:nth-child(2)').addClass('active');
+
 });
