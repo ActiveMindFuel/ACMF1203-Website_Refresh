@@ -33,7 +33,8 @@ function bones_ahoy() {
   // Register Custom Navigation Walker
   require_once('wp_bootstrap_navwalker.php');
   register_nav_menus( array( 
-    'primary' => __( 'Primary Menu', 'bonestheme' ) )
+    'primary' => __( 'Primary Menu', 'bonestheme' ),
+    'secondary' => __( 'Capabilities Menu', 'bonestheme' ) )
   );
 
   // launching operation cleanup
@@ -89,6 +90,12 @@ function bones_ahoy() {
 // let's get this party started
 add_action( 'after_setup_theme', 'bones_ahoy' );
 
+/************* FEATURED IMAGE (all post types) *************/
+
+function my_cptui_featured_image_support() {
+  add_theme_support( 'post-thumbnails' );
+}
+add_action( 'after_setup_theme', 'my_cptui_featured_image_support' );
 
 /************* OEMBED SIZE OPTIONS *************/
 
