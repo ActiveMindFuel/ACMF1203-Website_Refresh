@@ -34,6 +34,7 @@ function bones_ahoy() {
   require_once('wp_bootstrap_navwalker.php');
   register_nav_menus( array( 
     'primary' => __( 'Primary Menu', 'bonestheme' ),
+    'primary-front' => __( 'Primary-front Menu', 'bonestheme' ),
     'secondary' => __( 'Capabilities Menu', 'bonestheme' ) )
   );
 
@@ -89,6 +90,15 @@ function bones_ahoy() {
 
 // let's get this party started
 add_action( 'after_setup_theme', 'bones_ahoy' );
+
+/************* CPT Tags *************/
+
+function wpa_cpt_tags( $query ) {
+    if ( $query->is_tag() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'samples' ) );
+    }
+}
+add_action( 'pre_get_posts', 'wpa_cpt_tags' );
 
 /************* FEATURED IMAGE (all post types) *************/
 

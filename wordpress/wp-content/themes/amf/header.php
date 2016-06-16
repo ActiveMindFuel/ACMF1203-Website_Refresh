@@ -57,7 +57,20 @@
      						   <div class="nav-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/svg/nav-logo.svg" alt="Active Mind Fuel Logo"></div>
      						</a>
      					</div>
-     					<?php
+     					<?php if ( is_front_page() ) {	
+    						wp_nav_menu( array(
+     						 	'menu'              => 'primary-front',
+     						 	'theme_location'    => 'primary-front',
+     						 	'depth'             => 2,
+     						 	'container'         => 'div',
+     						 	'container_class'   => 'collapse navbar-collapse',
+     						 	'container_id'      => 'bs-example-navbar-collapse-1',
+     						 	'menu_class'        => 'nav navbar-nav navbar-right',
+     						 	'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+     						 	'walker'            => new wp_bootstrap_navwalker())
+     						);
+     					
+     					} else {
      						wp_nav_menu( array(
      						 	'menu'              => 'primary',
      						 	'theme_location'    => 'primary',
@@ -69,7 +82,7 @@
      						 	'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
      						 	'walker'            => new wp_bootstrap_navwalker())
      						);
-     					?>
+     					} ?>
      				</div>
      			</nav>
      		</div>

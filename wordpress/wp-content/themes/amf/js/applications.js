@@ -28,6 +28,24 @@ jQuery(document).ready(function(){
   		autoplaySpeed: 5000,
 	});
 
+	jQuery('.slickslider-samples').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		autoplay: true,
+  		autoplaySpeed: 5000,
+		fade: true,
+		asNavFor: '.slider-nav'
+	});
+	jQuery('.slider-nav').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		asNavFor: '.slickslider-samples',
+		dots: true,
+		centerMode: true,
+		focusOnSelect: true
+	});
+
 	//magnific-popup initialize
 	jQuery('.parent-container').magnificPopup({
 		delegate: 'a', // child items selector, by clicking on it popup will open
@@ -50,11 +68,11 @@ jQuery(document).ready(function(){
 	[2. Custom jQuery] */
 
 	//pill tabs (samples menu)
-	jQuery('#samples-module a').click(function (e) {
+	jQuery('#samples-module .nav-pills a').click(function (e) {
 		e.preventDefault()
 		jQuery(this).tab('show')
 	});
 
-	jQuery('#samples-module .nav-pills li:nth-child(2)').addClass('active');
+	jQuery('#samples-module .nav-pills li:nth-child(1)').addClass('active');
 
 });

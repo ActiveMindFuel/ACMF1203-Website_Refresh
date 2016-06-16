@@ -98,7 +98,7 @@
 	</section>
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- SAMPLES MODULE -->
-	<section id="samples-module">
+	<section id="samples-thumbnails-module">
 		<div id="samples"></div>
 		<div class="container-fluid">
 			<div class="row">
@@ -123,8 +123,8 @@
 			<div class="tab-content tabs-module-two-flex-container">
 				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="interactive">
 					<?php
-						$args = array(
-							'post_type' => 'capabilities',
+						$args1 = array(
+							'post_type' => 'samples',
 							'cat' => '4',
 							'post_status' => 'publish',
 							//'posts_per_page' => 14,
@@ -132,41 +132,30 @@
 							'paged' => get_query_var('page')
 						);
 
-						$loop = new WP_Query( $args );
-						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
+						$loop = new WP_Query( $args1 );
+						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
 					?>
-						<div>
-							<?php //if (have_posts()) : while (have_posts()) : the_post(); ?>
-							<div class="post">
-								<h1 class="page-title"><?php the_title(); ?></h1>
-								<p class="byline vcard">
-									<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-								</p>
-								<?php
-									the_content();
-									wp_link_pages( array(
-										'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-										'after'       => '</div>',
-										'link_before' => '<span>',
-										'link_after'  => '</span>',
-									) );
-								?>
-			    			   	<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-								<?php comments_template(); ?>
+						<div class="row">
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+								<div class="thumbnail">
+    								<?php if ( has_post_thumbnail() ): ?> <div class="thumb"><?php the_post_thumbnail('medium'); ?></div><?php endif; ?> 
+    								<div class="caption">
+    									<h3><?php the_title(); ?></h3>
+    									<p>...</p>
+    									<p><a href="<?php the_permalink(); ?>" class="btn btn-default">Button</a></p>
+    									<p><?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?></p>
+    								</div>
+    							</div>
 							</div>
 						</div>
 					<?php endwhile; wp_reset_postdata(); ?>
-					<!-- pagination -->
-					<?php //wp_pagenavi( array( 'query' => $loop ) ); ?>
-					<?php //wp_reset_postdata(); ?>
-					<?php //$wp_query = null; $wp_query = $temp; ?>
 					<?php endif; ?>
 				</div>
 
-				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="motion">
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="motion">
 					<?php
-						$args = array(
-							'post_type' => 'capabilities',
+						$args2 = array(
+							'post_type' => 'samples',
 							'cat' => '5',
 							'post_status' => 'publish',
 							'posts_per_page' => 2,
@@ -174,12 +163,18 @@
 							'paged' => get_query_var('page')
 						);
 
-						$loop = new WP_Query( $args );
+						$loop = new WP_Query( $args2 );
 						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
 					?>
 						<div>
 							<?php //if (have_posts()) : while (have_posts()) : the_post(); ?>
 							<div class="post">
+								<?php 
+									if ( has_post_thumbnail() ) {
+								    	the_post_thumbnail('medium');
+									} 
+									the_content(); 
+								?>
 								<h1 class="page-title"><?php the_title(); ?></h1>
 								<p class="byline vcard">
 									<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
@@ -206,7 +201,7 @@
 					<?php endif; ?>
 				</div>
 
-				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="environments">
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="environments">
 					<?php
 						query_posts('cat=6');
 						while (have_posts()) : the_post();
