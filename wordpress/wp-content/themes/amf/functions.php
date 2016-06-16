@@ -35,7 +35,7 @@ function bones_ahoy() {
   register_nav_menus( array( 
     'primary' => __( 'Primary Menu', 'bonestheme' ),
     'primary-front' => __( 'Primary-front Menu', 'bonestheme' ),
-    'secondary' => __( 'Capabilities Menu', 'bonestheme' ) )
+    'secondary' => __( 'Samples Menu', 'bonestheme' ) )
   );
 
   // launching operation cleanup
