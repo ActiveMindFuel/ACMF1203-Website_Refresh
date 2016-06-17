@@ -68,10 +68,11 @@ jQuery(document).ready(function(){
 	[2. Custom jQuery] */
 
 	//pill tabs (samples menu)
-	jQuery('#samples-thumbnails-module .nav-pills a').click(function (e) {
+	jQuery('#samples-module .nav-pills a').click(function (e) {
 		e.preventDefault()
 		jQuery(this).tab('show')
 	});
-	//jQuery('#samples-module .nav-pills li:nth-child(1)').addClass('active');
+
+	jQuery('#samples-module .nav-pills li:nth-child(1)').addClass('active');
 
 });
