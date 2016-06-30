@@ -57,6 +57,8 @@ function bones_ahoy() {
     wp_enqueue_script( 'bootstrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array('jquery'), true );
     wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js' );
     wp_enqueue_script( 'slick-js', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js' );
+    //wp_enqueue_script( 'tabslet', get_template_directory_uri() . '/js/jquery.tabslet.min.js', true );
+    //wp_enqueue_script( 'video-js', get_template_directory_uri() . '/js/video.js', true );
     wp_enqueue_script( 'magnific-js', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', true );
     wp_enqueue_script( 'applications', get_template_directory_uri() . '/js/applications.js', true );
   }
@@ -66,6 +68,8 @@ function bones_ahoy() {
     wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' );
     wp_enqueue_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css' );
     wp_enqueue_style( 'slick', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css' );
+    //wp_enqueue_style( 'video', get_template_directory_uri() . '/css/video-js.css' );
+    //wp_enqueue_style( 'video-style', get_template_directory_uri() . '/css/video-style.css' );
     wp_enqueue_style( 'magnific', get_template_directory_uri() . '/css/magnific-popup.css' );
     wp_enqueue_style( 'mystyles', get_template_directory_uri() . '/css/mystyles.css' );
     wp_enqueue_style( 'responsive', get_template_directory_uri() . '/css/responsive.css' );
@@ -100,6 +104,19 @@ function wpa_cpt_tags( $query ) {
 }
 add_action( 'pre_get_posts', 'wpa_cpt_tags' );
 
+add_filter('pre_get_posts', 'modify_pre_query_request');
+function modify_pre_query_request($query){
+    if ($query->is_main_query()){
+        if ($query->is_tax){
+            $post_type = get_query_var('post_type');
+            if (!$post_type){
+                $post_type = array( 'post', 'YOUR POST TYPE' );
+                $query->set('post_type', $post_type);
+            }
+        }
+    }
+}
+
 /************* FEATURED IMAGE (all post types) *************/
 
 function my_cptui_featured_image_support() {
@@ -113,6 +130,21 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 680;
 }
 
+/************* ACF FEATURED IMAGE *************/
+/*
+function acf_set_featured_image( $value, $post_id, $field ){
+    
+    if($value != ''){
+      //Add the value which is the image ID to the _thumbnail_id meta data for the current post
+      add_post_meta($post_id, '_thumbnail_id', $value);
+    }
+ 
+    return $value;
+}
+
+// acf/update_value/name={$field_name} - filter for a specific field based on it's name
+add_filter('acf/update_value/name=cursusfoto', 'acf_set_featured_image', 10, 3);
+*/
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
@@ -207,6 +239,26 @@ function bones_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
+  register_sidebar(array(
+    'id' => 'sidebar2',
+    'name' => __( 'Sidebar 2', 'bonestheme' ),
+    'description' => __( 'The second (secondary) sidebar.', 'bonestheme' ),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h4 class="widgettitle">',
+    'after_title' => '</h4>',
+  ));
+
+  register_sidebar(array(
+    'id' => 'sidebar3',
+    'name' => __( 'Sidebar 3', 'bonestheme' ),
+    'description' => __( 'The third (thirdary) sidebar.', 'bonestheme' ),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h4 class="widgettitle">',
+    'after_title' => '</h4>',
+  ));
+
 	/*
 	to add more sidebars or widgetized areas, just copy
 	and edit the above sidebar code. In order to call
@@ -288,3 +340,54 @@ function bones_fonts() {
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
+
+<?php /************* FEATURED POST *************/ ?>
+
+<?php function sm_custom_meta() {
+    add_meta_box( 'sm_meta', __( 'Featured Posts', 'sm-textdomain' ), 'sm_meta_callback', 'post' );
+}
+function sm_meta_callback( $post ) {
+    $featured = get_post_meta( $post->ID );
+    ?>
+ 
+  <p>
+    <div class="sm-row-content">
+        <label for="meta-checkbox">
+            <input type="checkbox" name="meta-checkbox" id="meta-checkbox" value="yes" <?php if ( isset ( $featured['meta-checkbox'] ) ) checked( $featured['meta-checkbox'][0], 'yes' ); ?> />
+            <?php _e( 'Featured this post', 'sm-textdomain' )?>
+        </label>
+        
+    </div>
+</p>
+ 
+    <?php
+}
+add_action( 'add_meta_boxes', 'sm_custom_meta' );
+?>
+
+<?php 
+/**
+ * Saves the custom meta input
+ */
+function sm_meta_save( $post_id ) {
+ 
+    // Checks save status
+    $is_autosave = wp_is_post_autosave( $post_id );
+    $is_revision = wp_is_post_revision( $post_id );
+    $is_valid_nonce = ( isset( $_POST[ 'sm_nonce' ] ) && wp_verify_nonce( $_POST[ 'sm_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+ 
+    // Exits script depending on save status
+    if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+        return;
+    }
+ 
+ // Checks for input and saves
+if( isset( $_POST[ 'meta-checkbox' ] ) ) {
+    update_post_meta( $post_id, 'meta-checkbox', 'yes' );
+} else {
+    update_post_meta( $post_id, 'meta-checkbox', '' );
+}
+ 
+}
+add_action( 'save_post', 'sm_meta_save' );
+?>

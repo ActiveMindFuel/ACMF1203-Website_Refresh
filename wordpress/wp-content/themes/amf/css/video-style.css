@@ -1,0 +1,87 @@
+/*.ipad { 
+	background-color: red;
+	background-image: url(images/ipad.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	width: 1124px;
+	height: 720px;
+	margin-left: -100px;
+}*/
+body{ overflow: hidden; }
+video { 
+	display: block;
+	width: 80%;
+	height: 80%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-left: 80px;
+	padding-right: 80px;
+	/*background-color: red;*/
+	background-image: url(images/ipad.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;
+	margin-left: -15%;
+	opacity: 1;
+	/*
+	-webkit-animation-name: fade-on;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-delay: 0;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-webkit-animation-fill-mode: backwards;
+	-webkit-transform: translateY(0);
+	
+	-moz-animation-name: fade-on;
+	-moz-animation-duration: 1s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-delay: 0;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-direction: normal;
+	-moz-animation-fill-mode: backwards;
+	-moz-transform: translateY(0);
+	
+	-o-animation-name: fade-on;
+	-o-animation-duration: 1s;
+	-o-animation-timing-function: ease;
+	-o-animation-delay: 0;
+	-o-animation-iteration-count: 1;
+	-o-animation-direction: normal;
+	-o-animation-fill-mode: backwards;
+	-o-transform: translateY(0);
+	
+	animation-name: fade-on;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-delay: 0;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: backwards;
+	transform: translateY(0);
+	*/
+}
+@-webkit-keyframes fade-on {
+	from { -webkit-transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); }
+}
+
+@-moz-keyframes fade-on {
+	from { -webkit-transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); }
+}
+
+@-o-keyframes fade-on {
+	from { -webkit-transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); }
+}
+
+@keyframes fade-on {
+	from { -webkit-transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); }
+}
+
+p { text-align: center; color: white; margin-left: -35%; font-family: Arial,Helvetica,sans-serif; }
+

@@ -34,51 +34,69 @@
 				<!-- ARTICLES MODULE -->
 				<div class="article-container">
 					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-						<?php
-							$args = array(
-								'post_type' => 'post',
-								//'cat' => '4',
-								'post_status' => 'publish',
-								//'posts_per_page' => 14,
-								'order' => 'DESC',
-								'paged' => get_query_var('page')
-							);
-	
-							$loop = new WP_Query( $args );
-							if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
-						?>
-							<div>
-								<?php //if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+						<div class="row">
+							<?php
+								$args2 = array(
+									'post_type' => 'post',
+									'posts_per_page' => 5,
+									'meta_key' => 'meta-checkbox',
+									'meta_value' => 'yes'
+								);
+								$featured = new WP_Query($args2);
+								
+								if ($featured->have_posts()): while($featured->have_posts()): $featured->the_post(); 
+							?>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="post-thumbnail">
 								<div class="post">
-									<?php 
-										if ( has_post_thumbnail() ) {
-									    	the_post_thumbnail('large');
-										} 
-										the_content(); 
-									?>
-									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><h1 class="page-title"><?php the_title(); ?></h1></a>
-									<p class="byline vcard">
-										<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option(	'date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-									</p>
-									<?php
-										the_content();
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
-									?>
-			    				   	<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-									<?php comments_template(); ?>
+									<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
+									<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
+									<?php if (has_post_thumbnail()) : ?>
+									 
+									<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a> </figure>
+									<p ><?php the_excerpt();?></p>
 								</div>
-							</div>
-						<?php endwhile; wp_reset_postdata(); ?>
-						<!-- pagination -->
-						<?php //wp_pagenavi( array( 'query' => $loop ) ); ?>
-						<?php //wp_reset_postdata(); ?>
-						<?php //$wp_query = null; $wp_query = $temp; ?>
-						<?php endif; ?>
+								</div>
+								</div>
+							<?php
+								endif;
+								endwhile; else:
+								endif;
+							?>
+						</div>
+						
+						<div class="row">
+							<?php
+								$args = array(
+									'post_type' => 'post',
+									'post_status' => 'publish',
+									'order' => 'DESC',
+									'paged' => get_query_var('page')
+								);
+								$loop = new WP_Query( $args );
+
+								if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title; 
+							?>
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+									<div class="post-thumbnail">
+										<div class="post">
+											<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
+											<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
+											<?php if (has_post_thumbnail()) : ?>
+											 
+											<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a> </figure>
+											<p ><?php the_excerpt();?></p>
+											</div>
+										</div>
+									</div>
+							<?php
+								endif;
+								endwhile; else:
+								endif;
+							?>
+						</div>
+
 					</div>
 				</div>
 				<!-- SIDEBAR MODULE -->
@@ -90,6 +108,9 @@
 			</div>
 		</div>
 	</section>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- NEWSLETTER MODULE -->
+	<?php get_sidebar( 'newsletter' ); ?>
 <?php get_footer(); ?>
 
 

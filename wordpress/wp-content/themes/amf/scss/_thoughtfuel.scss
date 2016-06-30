@@ -24,4 +24,9 @@ Primary use:	Website refresh
 #articles-module { background-color: $canvas; 
 	.article-container { background-color: #ccc; }
 	.sidebar-container { background-color: $red; width: 100%; }
+	//.post img { width: 100%; height: auto; }
+	.post-thumbnail { border: 1px solid #ccc; max-width: 682px; margin-bottom: 30px;
+		h1 { padding: 0 20px; }
+		p { padding: 0 20px; }
+	}
 }

@@ -29,22 +29,74 @@ Primary use:	Website refresh
 
 /* ---------------------------------------------------------------------
 [2. Thumbnails] */
+/*
+.flexbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+.flexbox .col {
+  flex: 1;
+}
+*/
+
+.tab-content { margin-top: 30px; }
 
 .thumb img { width: 100%; }
+.thumbnail-container { display: block-inline; }
+.thumbnail { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75));
+	.caption { padding-bottom: 10px; margin-bottom: 30px;
+		h3 { font-size: 1.10em; margin-top: 7px; margin-bottom: 7px; @extend .opensans-semi; }
+		span { font-size: 0.8em; color: $font-alt; font-weight: 400; }
+		.cat-icon { margin-top: 15px; padding: 7px 10px; border-radius: 50px; border: 1px solid transparent; background-color: $grey; }
+	}
+}
+.thumbnail .cat { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75));
+	.cat .caption { padding-bottom: 0px!important; margin-bottom: 0px!important;
+		
+		
+		
+		
+	}
+}
+.cat .img-container { overflow: hidden; }
+.cat img { width: 100%; }
+//.cat .coption { padding-bottom: 0px!important; margin-bottom: 0px!important; }
+.cat h3 { font-size: 1.10em; margin-top: 0px!important; margin-bottom: 0px!important; @extend .opensans-semi; }
+.cat span { font-size: 0.8em; color: $font-alt; font-weight: 400; }
+.cat .cat-icon { margin-top: 0px!important; margin-right: 10px; padding: 4px 7px; border-radius: 50px; border: 1px solid transparent; background-color: $grey; font-size: 0.8em; }
+.cat .col-xs-7 { padding-left: 0!important; padding-right: 0!important; }
+.cat .col-xs-3 { padding-left: 0!important; padding-right: 0!important; }
 
 /* ---------------------------------------------------------------------
 [3. Samples Slider] */
 
 #samples-slider-module { margin-top: -350px;
-	.slide { width: 100%; height: 400px; background-color: $blue; &:nth-child(2) { background-color: $green-lt; } &:nth-child(3) { background-color: $red; } }
-	.slide-thumb { width: 150px!important; height: 150px; margin: 0 20px; background-color: $blue; &:nth-child(2) { background-color: $green-lt; } &:nth-child(3) { background-color: $red; } }
+	.slickslider-samples img, { margin: 0 auto!important; }
+	.slide img { border: 1px solid #eee; width: 100%; max-width: 1000px; height: auto; }
+	.slide-thumb { /*width: 150px!important; height: 150px!important;*/ margin: 0 10px; &:nth-child(1) { margin-left: 0; } border: 1px solid #eee; text-align: center; img {  width: 100%; height: auto; text-align: center; } }
 	.slider-nav { margin-top: 50px; }
+	.slider-nav .slick-track { width: 100%!important; margin-left: 0!important; }
 
-	/* slick slider */
+	/* slick slider *//*
 	.slick-dots { left: -110px!important; margin-left: 50%; position: absolute; z-index: 100; margin-top: -30px;
 		li { display: inline-block!important; border-radius: 50%; border: 1px solid $white; height: 8px; width: 8px; margin: 0 10px;
 			button { display: none; font-size: 0px; } 
 		}
 	}
-	.slick-dots .slick-active { border: 1px solid $white!important; background-color: $white!important; }
+	.slick-dots .slick-active { border: 1px solid $white!important; background-color: $white!important; }*/
+}
+
+/* ---------------------------------------------------------------------
+[3. Samples Video] */
+#samples-video-module,#samples-capabilities_video-module { margin-top: -350px; 
+	.video-container { text-align: center; }
+	video { width: 100%; max-width: 1200px; border: 1px solid #ddd; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75)); }
+}
+
+/* ---------------------------------------------------------------------
+[3. Samples Description] */
+#sample-description { text-align: center; 
+	h1 { padding-bottom: 20px; }
 }

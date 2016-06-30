@@ -6,7 +6,6 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="header-img">
-						
 					</div>								
 				</div>
 			</div>
@@ -14,41 +13,122 @@
 	</section>
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- SAMPLE SLIDER MODULE -->
-	<section id="samples-slider-module">
+	<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+		<?php 
+           $images = get_sub_field( 'sample_iamge' ); 
+           $video = get_sub_field( 'sample_video' );
+           if( $images ) {
+        ?>
+			<section id="samples-slider-module">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="slickslider-samples">
+								<?php if( have_rows( 'sample_images' ) ): while ( have_rows( 'sample_images' ) ): the_row(); ?>
+									<div class="slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-xs-12"><img src="<?php the_sub_field( 'sample_image' ); ?>" alt=""></div>
+											</div>
+										</div>
+									</div>
+								<?php endwhile; endif; ?>
+							</div>
+							
+							<div class="slider-nav" data-slick='{"slidesToShow": 7, "slidesToScroll": 1}'>
+								<?php if( have_rows( 'sample_thumbnails' ) ): while ( have_rows( 'sample_thumbnails' ) ): the_row(); ?>
+									<div class="slide-thumb"><img src="<?php the_sub_field( 'sample_image_thumbnail' ); ?>" alt=""></div>
+								<?php endwhile; endif; ?>
+							</div>
+						</div>					
+					</div>
+				</div>
+			</section>
+		<?php } ?>
+		<?php if( $video ) { ?>
+			<section id="samples-video-module">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<!-- SAMPLE VIDEO MODULE -->
+							<div class="video-container">
+								<video id="sampleMovie" preload autoplay controls>
+									<source src="<?php echo get_stylesheet_directory_uri(); ?>/samples/interactive/mp4/<?php the_sub_field( 'sample_video' ); ?>.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+									<source src="<?php echo get_stylesheet_directory_uri(); ?>/samples/interactive/ogg/<?php the_sub_field( 'sample_video' ); ?>.oggtheora.ogv" type='video/ogg; codecs="theora, vorbis"' />
+									<source src="<?php echo get_stylesheet_directory_uri(); ?>/samples/interactive/webm/<?php the_sub_field( 'sample_video' ); ?>.webmsd.webm" type='video/webm; codecs="vp8, vorbis"' />
+									<object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="97%" height="97%">
+										<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+										<param name="allowFullScreen" value="false" />
+										<param name="wmode" value="transparent" />
+										<param name="flashvars" value='config={"clip":{"url":"flv/ElementsWeb.flv","autoPlay":false,"autoBuffering":true}}' />
+									</object>
+								</video>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		<?php } ?>
+	<?php endwhile; endif; ?>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- SAMPLE DESCRIPTION -->
+	<section id="sample-description">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<div class="slickslider-samples">
-						<div class="slide">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-xs-12"> your content</div>
-								</div>
-							</div>
-						</div>
-						<div class="slide">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-xs-12"> your content</div>
-								</div>
-							</div>
-						</div>
-						<div class="slide">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-xs-12"> your content</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slider-nav">
-						<div class="slide-thumb"></div>
-						<div class="slide-thumb"></div>
-						<div class="slide-thumb"></div>
-					</div>
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+					<h1><?php the_title(); ?></h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, illum ratione. Consequuntur a debitis dicta, ipsam perferendis fugiat possimus laborum esse quae voluptas. Harum iure quia, voluptate quibusdam explicabo voluptatibus blanditiis doloribus unde magnam culpa atque. Perspiciatis, odit nemo. Blanditiis a eos ipsam accusamus natus dicta hic magnam, commodi delectus.
+					</p>
 				</div>
 			</div>
 		</div>
 	</section>
-
+	<?php $hastag = get_field( 'tag' ); if( $hastag != '' ) { ?>
+	<section id="tags">
+		<div class="container-fluid">
+			<div class="row">
+				<?php
+					$args2 = array(
+						'post_type' => 'samples',
+						//'cat' => 4,
+						'tag__in' => get_field( 'tag' ), //how can I make this a variable?
+						'post__not_in' => array($post->ID),
+						'post_status' => 'publish',
+						'posts_per_page' => -1,
+						'order' => 'DESC',
+						'paged' => get_query_var('page')
+					);
+					
+					is_single();
+			
+					$loop = new WP_Query( $args2 );
+					if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
+				?>
+			
+					<div class="thumbnail-container">
+						<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="thumbnail cat">
+									<div class="row">
+										<div class="col-xs-5 col-sm-5 col-md-6 col-lg-5"><a href="<?php the_permalink(); ?>"><span class="img-container"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a></span></div>
+										<div class="col-xs-7 col-sm-7 col-md-6 col-lg-7">
+											<div class="caption">
+    											<h3><?php the_title(); ?></h3>
+    											<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
+    											<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    										</div>
+										</div>
+									</div>
+    							</div>
+							</div>
+						<?php endwhile; endif; ?>
+					</div>
+	
+				<?php endwhile; wp_reset_postdata(); ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</section>
+	<?php } ?>
 <?php get_footer(); ?>

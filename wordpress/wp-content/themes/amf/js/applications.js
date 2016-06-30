@@ -13,13 +13,13 @@ Primary use:	Website refresh
 2.  Custom jQuery
 */
 
-jQuery(document).ready(function(){
+jQuery(document).ready(function($){
 
 	/* ---------------------------------------------------------------------
 	[1. 3rd Party Library Settings] */
 
 	//slick slider settings
-  	jQuery('.slickslider').slick({
+  	$('.slickslider').slick({
 		slidesToShow: 1,
   		slidesToScroll: 1,
   		arrows: false,
@@ -28,26 +28,29 @@ jQuery(document).ready(function(){
   		autoplaySpeed: 5000,
 	});
 
-	jQuery('.slickslider-samples').slick({
+	$('.slickslider-samples').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
 		autoplay: true,
   		autoplaySpeed: 5000,
 		fade: true,
+		adaptiveHeight: true,
 		asNavFor: '.slider-nav'
 	});
-	jQuery('.slider-nav').slick({
-		slidesToShow: 3,
-		slidesToScroll: 1,
+	$('.slider-nav').slick({
+		//slidesToShow: 7,
+		//slidesToScroll: 1,
 		asNavFor: '.slickslider-samples',
-		dots: true,
-		centerMode: true,
+		dots: false,
+		arrows: false,
+		centerMode: false,
+        centerPadding: '40px',
 		focusOnSelect: true
 	});
 
 	//magnific-popup initialize
-	jQuery('.parent-container').magnificPopup({
+	$('.parent-container').magnificPopup({
 		delegate: 'a', // child items selector, by clicking on it popup will open
 		type: 'image'
 	});
@@ -64,15 +67,18 @@ jQuery(document).ready(function(){
       });
     };
 
+    //tabslet
+    //$('.tabs, .tabs-menu').tabslet();
+
 	/* ---------------------------------------------------------------------
 	[2. Custom jQuery] */
 
 	//pill tabs (samples menu)
-	jQuery('#samples-module .nav-pills a').click(function (e) {
+	$('#samples-thumbnails-module .nav-pills a').click(function (e) {
 		e.preventDefault()
-		jQuery(this).tab('show')
+		$(this).tab('show')
 	});
 
-	jQuery('#samples-module .nav-pills li:nth-child(1)').addClass('active');
+	$('#samples-thumbnails-module .nav-pills li:nth-child(1)').addClass('active');
 
 });

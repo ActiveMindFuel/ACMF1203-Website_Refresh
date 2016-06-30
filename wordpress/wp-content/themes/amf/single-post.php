@@ -26,6 +26,8 @@
 								get_template_part( 'post-formats/format', get_post_format() );
 							?>
 
+							<?php if ( has_post_thumbnail() ): ?> <div class="thumb"><?php the_post_thumbnail('medium'); ?></div><?php endif; ?> 
+
 						<?php endwhile; ?>
 
 						<?php else : ?>

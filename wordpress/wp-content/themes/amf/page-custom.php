@@ -98,6 +98,7 @@
 	</section>
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- SAMPLES MODULE -->
+
 	<section id="samples-thumbnails-module">
 		<div id="samples"></div>
 		<div class="container-fluid">
@@ -126,8 +127,9 @@
 						$args1 = array(
 							'post_type' => 'samples',
 							'cat' => '4',
+							//'taxonmy' => '12',
 							'post_status' => 'publish',
-							//'posts_per_page' => 14,
+							'posts_per_page' => -1,
 							'order' => 'DESC',
 							'paged' => get_query_var('page')
 						);
@@ -135,18 +137,19 @@
 						$loop = new WP_Query( $args1 );
 						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
 					?>
-						<div class="row">
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-								<div class="thumbnail">
-    								<?php if ( has_post_thumbnail() ): ?> <div class="thumb"><?php the_post_thumbnail('medium'); ?></div><?php endif; ?> 
-    								<div class="caption">
-    									<h3><?php the_title(); ?></h3>
-    									<p>...</p>
-    									<p><a href="<?php the_permalink(); ?>" class="btn btn-default">Button</a></p>
-    									<p><?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?></p>
+						<div class="thumbnail-container">
+							<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+									<div class="thumbnail">
+									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
+    									<div class="caption">
+    										<h3><?php the_title(); ?></h3>
+    										<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
+    										<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    									</div>
     								</div>
-    							</div>
-							</div>
+								</div>
+							<?php endwhile; endif; ?>
 						</div>
 					<?php endwhile; wp_reset_postdata(); ?>
 					<?php endif; ?>
@@ -158,7 +161,7 @@
 							'post_type' => 'samples',
 							'cat' => '5',
 							'post_status' => 'publish',
-							'posts_per_page' => 2,
+							'posts_per_page' => -1,
 							'order' => 'DESC',
 							'paged' => get_query_var('page')
 						);
@@ -166,97 +169,142 @@
 						$loop = new WP_Query( $args2 );
 						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
 					?>
-						<div>
-							<?php //if (have_posts()) : while (have_posts()) : the_post(); ?>
-							<div class="post">
-								<?php 
-									if ( has_post_thumbnail() ) {
-								    	the_post_thumbnail('medium');
-									} 
-									the_content(); 
-								?>
-								<h1 class="page-title"><?php the_title(); ?></h1>
-								<p class="byline vcard">
-									<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-								</p>
-								<?php
-									the_content();
-									wp_link_pages( array(
-										'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-										'after'       => '</div>',
-										'link_before' => '<span>',
-										'link_after'  => '</span>',
-									) );
-								?>
-			    			   	<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-								<?php comments_template(); ?>
-							</div>
+						<div class="thumbnail-container">
+							<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+									<div class="thumbnail">
+									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
+    									<div class="caption">
+    										<h3><?php the_title(); ?></h3>
+    										<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
+    										<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    									</div>
+    								</div>
+								</div>
+							<?php endwhile; endif; ?>
 						</div>
-						<p><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
 					<?php endwhile; wp_reset_postdata(); ?>
-					<!-- pagination -->
-					<?php //wp_pagenavi( array( 'query' => $loop ) ); ?>
-					<?php //wp_reset_postdata(); ?>
-					<?php //$wp_query = null; $wp_query = $temp; ?>
 					<?php endif; ?>
 				</div>
 
 				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="environments">
 					<?php
-						query_posts('cat=6');
-						while (have_posts()) : the_post();
-						the_content();
-						endwhile;
+						$args2 = array(
+							'post_type' => 'samples',
+							'cat' => '6',
+							'post_status' => 'publish',
+							'posts_per_page' => -1,
+							'order' => 'DESC',
+							'paged' => get_query_var('page')
+						);
+
+						$loop = new WP_Query( $args2 );
+						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
 					?>
+						<div class="thumbnail-container">
+							<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+									<div class="thumbnail">
+									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
+    									<div class="caption">
+    										<h3><?php the_title(); ?></h3>
+    										<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
+    										<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    									</div>
+    								</div>
+								</div>
+							<?php endwhile; endif; ?>
+						</div>
+					<?php endwhile; wp_reset_postdata(); ?>
+					<?php endif; ?>
 				</div>
 
 				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="web">
-					<div class="row">
-						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-							<div class="thumbnail">
-    							<img src="..." alt="...">
-    							<div class="caption">
-    								<h3>Thumbnail label</h3>
-    								<p>...</p>
-    								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-    							</div>
-    						</div>
+					<?php
+						$args2 = array(
+							'post_type' => 'samples',
+							'cat' => '7',
+							'post_status' => 'publish',
+							'posts_per_page' => -1,
+							'order' => 'DESC',
+							'paged' => get_query_var('page')
+						);
+
+						$loop = new WP_Query( $args2 );
+						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
+					?>
+						<div class="thumbnail-container">
+							<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+									<div class="thumbnail">
+									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
+    									<div class="caption">
+    										<h3><?php the_title(); ?></h3>
+    										<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
+    										<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    									</div>
+    								</div>
+								</div>
+							<?php endwhile; endif; ?>
 						</div>
-						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-							<div class="thumbnail">
-    							<img src="..." alt="...">
-    							<div class="caption">
-    								<h3>Thumbnail label</h3>
-    								<p>...</p>
-    								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-    							</div>
-    						</div>
-						</div>
-						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-							<div class="thumbnail">
-    							<img src="..." alt="...">
-    							<div class="caption">
-    								<h3>Thumbnail label</h3>
-    								<p>...</p>
-    								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-    							</div>
-    						</div>
-						</div>
-						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-							<div class="thumbnail">
-    							<img src="..." alt="...">
-    							<div class="caption">
-    								<h3>Thumbnail label</h3>
-    								<p>...</p>
-    								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-    							</div>
-    						</div>
-						</div>
-					</div>
+					<?php endwhile; wp_reset_postdata(); ?>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
 	</section>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- CASE STUDIES MODULE -->
+	<section id="case-studies-module">
+		<div class="container-fluid">
+			<div class="row">
+				<?php
+					$args2 = array(
+						'post_type' => 'samples',
+						'cat' => '4',
+						'post_status' => 'publish',
+						'posts_per_page' => 3,
+						'order' => 'DESC',
+						'paged' => get_query_var('page')
+					);
+
+					$loop = new WP_Query( $args2 );
+					if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
+				?>
+					<div class="thumbnail-container">
+						<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<div class="thumbnail">
+								<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
+    								<div class="caption">
+    									<h3><?php the_title(); ?></h3>
+    									<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
+    									<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    								</div>
+    							</div>
+							</div>
+						<?php endwhile; endif; ?>
+					</div>
+				<?php endwhile; wp_reset_postdata(); ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</section>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- NEWSLETTER MODULE -->
+	<?php get_sidebar( 'newsletter' ); ?>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- CLIENTS MODULE -->
+	<section id="clients-module">
+		<div class="container-fluid">
+			<div class="row">
+				<?php if( have_rows( 'clients' ) ): while( have_rows( 'clients' ) ): the_row(); ?>
+					<div class="col-xs-4 col-sm-4 col-md-3 col-lg-2"><div class="client-logo"><img src="<?php the_sub_field( 'client_logo' ); ?>" alt="<?php the_sub_field( 'client_name' ); ?>"></div></div>
+				<?php endwhile; endif; ?>
+			</div>
+		</div>
+	</section>
+	
 <?php get_footer(); ?>
 
 

@@ -79,10 +79,10 @@ Primary use:	Website refresh
 .opensans-lgt-ital {
   font-family: 'open_sanslight_italic'; }
 
-.opensans-reg {
+.opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi {
+.opensans-semi, .thumbnail .caption h3, .cat h3 {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -97,58 +97,58 @@ Primary use:	Website refresh
 /* Load Open Sans */
 @font-face {
   font-family: 'open_sansbold';
-  src: url("../fonts/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans-bold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansbold_italic';
-  src: url("../fonts/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-bolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansextrabold';
-  src: url("../fonts/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansextrabold_italic';
-  src: url("../fonts/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansitalic';
-  src: url("../fonts/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans-italic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanslight';
-  src: url("../fonts/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans-light-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanslight_italic';
-  src: url("../fonts/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans-lightitalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-lightitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansregular';
-  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans-regular-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanssemibold';
-  src: url("../fonts/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans-semibold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanssemibold_italic';
-  src: url("../fonts/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-semibolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 /* Load Great Vibes */
 @font-face {
   font-family: 'great_vibesregular';
-  src: url("../fonts/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes-regular-webfont.woff") format("woff");
+  src: url("../fonts/greatvibes/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes/greatvibes-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 /*------------------------------------------------------------------
@@ -170,7 +170,8 @@ Primary use:	Website refresh
 html, body {
   margin: 0 auto;
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  font-size: 16px; }
 
 .container-fluid {
   max-width: 1420px;
@@ -182,9 +183,41 @@ footer {
   padding: 50px 0; }
   footer .footer-logo {
     padding: 30px 0; }
+  footer .copyright {
+    font-size: 0.7em; }
 
 section {
-  padding: 50px 0; }
+  padding: 50px 0 70px; }
+  section:nth-last-child(1) {
+    margin-top: 50px; }
+
+.client-logo {
+  text-align: center; }
+  .client-logo img {
+    padding: 10px 0;
+    /*width: 100%; height: auto; max-height: 72px;*/ }
+
+/* ---------------------------------------------------------------------
+[1. Footer Address] */
+.address-container {
+  margin-top: -70px; }
+
+.social {
+  text-align: center;
+  margin-left: -40px; }
+  .social li {
+    display: inline-block;
+    text-align: center;
+    padding: 10px; }
+    .social li .icon {
+      border-radius: 50%;
+      border: 1px solid #eee;
+      padding: 10px 15px;
+      text-align: center; }
+      .social li .icon i {
+        width: 25px;
+        height: 25px;
+        margin-top: 10px; }
 
 /*------------------------------------------------------------------
 [Master Stylesheet]
@@ -508,10 +541,10 @@ Primary use:	Website refresh
 .opensans-lgt-ital {
   font-family: 'open_sanslight_italic'; }
 
-.opensans-reg {
+.opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi {
+.opensans-semi, .thumbnail .caption h3, .cat h3 {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -526,58 +559,58 @@ Primary use:	Website refresh
 /* Load Open Sans */
 @font-face {
   font-family: 'open_sansbold';
-  src: url("../fonts/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans-bold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansbold_italic';
-  src: url("../fonts/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-bolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansextrabold';
-  src: url("../fonts/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansextrabold_italic';
-  src: url("../fonts/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansitalic';
-  src: url("../fonts/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans-italic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanslight';
-  src: url("../fonts/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans-light-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanslight_italic';
-  src: url("../fonts/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans-lightitalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-lightitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansregular';
-  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans-regular-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanssemibold';
-  src: url("../fonts/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans-semibold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanssemibold_italic';
-  src: url("../fonts/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-semibolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 /* Load Great Vibes */
 @font-face {
   font-family: 'great_vibesregular';
-  src: url("../fonts/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes-regular-webfont.woff") format("woff");
+  src: url("../fonts/greatvibes/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes/greatvibes-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 /*------------------------------------------------------------------
@@ -599,7 +632,8 @@ Primary use:	Website refresh
 html, body {
   margin: 0 auto;
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  font-size: 16px; }
 
 .container-fluid {
   max-width: 1420px;
@@ -611,9 +645,41 @@ footer {
   padding: 50px 0; }
   footer .footer-logo {
     padding: 30px 0; }
+  footer .copyright {
+    font-size: 0.7em; }
 
 section {
-  padding: 50px 0; }
+  padding: 50px 0 70px; }
+  section:nth-last-child(1) {
+    margin-top: 50px; }
+
+.client-logo {
+  text-align: center; }
+  .client-logo img {
+    padding: 10px 0;
+    /*width: 100%; height: auto; max-height: 72px;*/ }
+
+/* ---------------------------------------------------------------------
+[1. Footer Address] */
+.address-container {
+  margin-top: -70px; }
+
+.social {
+  text-align: center;
+  margin-left: -40px; }
+  .social li {
+    display: inline-block;
+    text-align: center;
+    padding: 10px; }
+    .social li .icon {
+      border-radius: 50%;
+      border: 1px solid #eee;
+      padding: 10px 15px;
+      text-align: center; }
+      .social li .icon i {
+        width: 25px;
+        height: 25px;
+        margin-top: 10px; }
 
 /* ---------------------------------------------------------------------
 [1. Masthead] */
@@ -818,10 +884,10 @@ Primary use:	Website refresh
 .opensans-lgt-ital {
   font-family: 'open_sanslight_italic'; }
 
-.opensans-reg {
+.opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi {
+.opensans-semi, .thumbnail .caption h3, .cat h3 {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -836,58 +902,58 @@ Primary use:	Website refresh
 /* Load Open Sans */
 @font-face {
   font-family: 'open_sansbold';
-  src: url("../fonts/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans-bold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansbold_italic';
-  src: url("../fonts/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-bolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansextrabold';
-  src: url("../fonts/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansextrabold_italic';
-  src: url("../fonts/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansitalic';
-  src: url("../fonts/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans-italic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanslight';
-  src: url("../fonts/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans-light-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanslight_italic';
-  src: url("../fonts/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans-lightitalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-lightitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansregular';
-  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans-regular-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanssemibold';
-  src: url("../fonts/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans-semibold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanssemibold_italic';
-  src: url("../fonts/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-semibolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 /* Load Great Vibes */
 @font-face {
   font-family: 'great_vibesregular';
-  src: url("../fonts/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes-regular-webfont.woff") format("woff");
+  src: url("../fonts/greatvibes/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes/greatvibes-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 /*------------------------------------------------------------------
@@ -909,7 +975,8 @@ Primary use:	Website refresh
 html, body {
   margin: 0 auto;
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  font-size: 16px; }
 
 .container-fluid {
   max-width: 1420px;
@@ -921,60 +988,189 @@ footer {
   padding: 50px 0; }
   footer .footer-logo {
     padding: 30px 0; }
+  footer .copyright {
+    font-size: 0.7em; }
 
 section {
-  padding: 50px 0; }
+  padding: 50px 0 70px; }
+  section:nth-last-child(1) {
+    margin-top: 50px; }
+
+.client-logo {
+  text-align: center; }
+  .client-logo img {
+    padding: 10px 0;
+    /*width: 100%; height: auto; max-height: 72px;*/ }
+
+/* ---------------------------------------------------------------------
+[1. Footer Address] */
+.address-container {
+  margin-top: -70px; }
+
+.social {
+  text-align: center;
+  margin-left: -40px; }
+  .social li {
+    display: inline-block;
+    text-align: center;
+    padding: 10px; }
+    .social li .icon {
+      border-radius: 50%;
+      border: 1px solid #eee;
+      padding: 10px 15px;
+      text-align: center; }
+      .social li .icon i {
+        width: 25px;
+        height: 25px;
+        margin-top: 10px; }
 
 /* ---------------------------------------------------------------------
 [1. Samples sub menu] */
 /* ---------------------------------------------------------------------
 [2. Thumbnails] */
+/*
+.flexbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+.flexbox .col {
+  flex: 1;
+}
+*/
+.tab-content {
+  margin-top: 30px; }
+
 .thumb img {
   width: 100%; }
+
+.thumbnail-container {
+  display: block-inline; }
+
+.thumbnail {
+  padding: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
+  -moz-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
+  box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75); }
+  .thumbnail .caption {
+    padding-bottom: 10px;
+    margin-bottom: 30px; }
+    .thumbnail .caption h3 {
+      font-size: 1.10em;
+      margin-top: 7px;
+      margin-bottom: 7px; }
+    .thumbnail .caption span {
+      font-size: 0.8em;
+      color: #aaa;
+      font-weight: 400; }
+    .thumbnail .caption .cat-icon {
+      margin-top: 15px;
+      padding: 7px 10px;
+      border-radius: 50px;
+      border: 1px solid transparent;
+      background-color: #f5f5f5; }
+
+.thumbnail .cat {
+  padding: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
+  -moz-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
+  box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75); }
+  .thumbnail .cat .cat .caption {
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important; }
+
+.cat .img-container {
+  overflow: hidden; }
+
+.cat img {
+  width: 100%; }
+
+.cat h3 {
+  font-size: 1.10em;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important; }
+
+.cat span {
+  font-size: 0.8em;
+  color: #aaa;
+  font-weight: 400; }
+
+.cat .cat-icon {
+  margin-top: 0px !important;
+  margin-right: 10px;
+  padding: 4px 7px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  background-color: #f5f5f5;
+  font-size: 0.8em; }
+
+.cat .col-xs-7 {
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+
+.cat .col-xs-3 {
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
 
 /* ---------------------------------------------------------------------
 [3. Samples Slider] */
 #samples-slider-module {
   margin-top: -350px;
-  /* slick slider */ }
-  #samples-slider-module .slide {
+  /* slick slider */
+                  /*
+.slick-dots { left: -110px!important; margin-left: 50%; position: absolute; z-index: 100; margin-top: -30px;
+	li { display: inline-block!important; border-radius: 50%; border: 1px solid $white; height: 8px; width: 8px; margin: 0 10px;
+		button { display: none; font-size: 0px; } 
+	}
+}
+.slick-dots .slick-active { border: 1px solid $white!important; background-color: $white!important; }*/ }
+  #samples-slider-module .slickslider-samples img {
+    margin: 0 auto !important; }
+  #samples-slider-module .slide img {
+    border: 1px solid #eee;
     width: 100%;
-    height: 400px;
-    background-color: #00ccff; }
-    #samples-slider-module .slide:nth-child(2) {
-      background-color: #b6d44f; }
-    #samples-slider-module .slide:nth-child(3) {
-      background-color: #b83535; }
+    max-width: 1000px;
+    height: auto; }
   #samples-slider-module .slide-thumb {
-    width: 150px !important;
-    height: 150px;
-    margin: 0 20px;
-    background-color: #00ccff; }
-    #samples-slider-module .slide-thumb:nth-child(2) {
-      background-color: #b6d44f; }
-    #samples-slider-module .slide-thumb:nth-child(3) {
-      background-color: #b83535; }
+    /*width: 150px!important; height: 150px!important;*/
+    margin: 0 10px;
+    border: 1px solid #eee;
+    text-align: center; }
+    #samples-slider-module .slide-thumb:nth-child(1) {
+      margin-left: 0; }
+    #samples-slider-module .slide-thumb img {
+      width: 100%;
+      height: auto;
+      text-align: center; }
   #samples-slider-module .slider-nav {
     margin-top: 50px; }
-  #samples-slider-module .slick-dots {
-    left: -110px !important;
-    margin-left: 50%;
-    position: absolute;
-    z-index: 100;
-    margin-top: -30px; }
-    #samples-slider-module .slick-dots li {
-      display: inline-block !important;
-      border-radius: 50%;
-      border: 1px solid #fff;
-      height: 8px;
-      width: 8px;
-      margin: 0 10px; }
-      #samples-slider-module .slick-dots li button {
-        display: none;
-        font-size: 0px; }
-  #samples-slider-module .slick-dots .slick-active {
-    border: 1px solid #fff !important;
-    background-color: #fff !important; }
+  #samples-slider-module .slider-nav .slick-track {
+    width: 100% !important;
+    margin-left: 0 !important; }
+
+/* ---------------------------------------------------------------------
+[3. Samples Video] */
+#samples-video-module, #samples-capabilities_video-module {
+  margin-top: -350px; }
+  #samples-video-module .video-container, #samples-capabilities_video-module .video-container {
+    text-align: center; }
+  #samples-video-module video, #samples-capabilities_video-module video {
+    width: 100%;
+    max-width: 1200px;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
+    -moz-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
+    box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75); }
+
+/* ---------------------------------------------------------------------
+[3. Samples Description] */
+#sample-description {
+  text-align: center; }
+  #sample-description h1 {
+    padding-bottom: 20px; }
 
 /*------------------------------------------------------------------
 [Master Stylesheet]
@@ -1060,10 +1256,10 @@ Primary use:	Website refresh
 .opensans-lgt-ital {
   font-family: 'open_sanslight_italic'; }
 
-.opensans-reg {
+.opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi {
+.opensans-semi, .thumbnail .caption h3, .cat h3 {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -1078,58 +1274,58 @@ Primary use:	Website refresh
 /* Load Open Sans */
 @font-face {
   font-family: 'open_sansbold';
-  src: url("../fonts/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans-bold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansbold_italic';
-  src: url("../fonts/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-bolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansextrabold';
-  src: url("../fonts/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansextrabold_italic';
-  src: url("../fonts/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-extrabolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansitalic';
-  src: url("../fonts/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans-italic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanslight';
-  src: url("../fonts/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans-light-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanslight_italic';
-  src: url("../fonts/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans-lightitalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-lightitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sansregular';
-  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans-regular-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanssemibold';
-  src: url("../fonts/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans-semibold-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'open_sanssemibold_italic';
-  src: url("../fonts/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-semibolditalic-webfont.woff") format("woff");
+  src: url("../fonts/opensans/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 /* Load Great Vibes */
 @font-face {
   font-family: 'great_vibesregular';
-  src: url("../fonts/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes-regular-webfont.woff") format("woff");
+  src: url("../fonts/greatvibes/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes/greatvibes-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 /*------------------------------------------------------------------
@@ -1151,7 +1347,8 @@ Primary use:	Website refresh
 html, body {
   margin: 0 auto;
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  font-size: 16px; }
 
 .container-fluid {
   max-width: 1420px;
@@ -1163,9 +1360,41 @@ footer {
   padding: 50px 0; }
   footer .footer-logo {
     padding: 30px 0; }
+  footer .copyright {
+    font-size: 0.7em; }
 
 section {
-  padding: 50px 0; }
+  padding: 50px 0 70px; }
+  section:nth-last-child(1) {
+    margin-top: 50px; }
+
+.client-logo {
+  text-align: center; }
+  .client-logo img {
+    padding: 10px 0;
+    /*width: 100%; height: auto; max-height: 72px;*/ }
+
+/* ---------------------------------------------------------------------
+[1. Footer Address] */
+.address-container {
+  margin-top: -70px; }
+
+.social {
+  text-align: center;
+  margin-left: -40px; }
+  .social li {
+    display: inline-block;
+    text-align: center;
+    padding: 10px; }
+    .social li .icon {
+      border-radius: 50%;
+      border: 1px solid #eee;
+      padding: 10px 15px;
+      text-align: center; }
+      .social li .icon i {
+        width: 25px;
+        height: 25px;
+        margin-top: 10px; }
 
 /* ---------------------------------------------------------------------
 [1. Thoughtfuel] */
@@ -1176,6 +1405,287 @@ section {
   #articles-module .sidebar-container {
     background-color: #b83535;
     width: 100%; }
+  #articles-module .post-thumbnail {
+    border: 1px solid #ccc;
+    max-width: 682px;
+    margin-bottom: 30px; }
+    #articles-module .post-thumbnail h1 {
+      padding: 0 20px; }
+    #articles-module .post-thumbnail p {
+      padding: 0 20px; }
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Sample sub navigation
+2.  Thumbnails
+3.  Sample pages
+	- sample slider
+*/
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Brand Colors
+2.	Neutral Colors
+3.	Other Colors
+
+---------------------------------------------------------------------
+[1. Brand Colors] */
+/* ---------------------------------------------------------------------
+[2. Background Colors] */
+/* ---------------------------------------------------------------------
+[3. Other Colors] */
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+*/
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Fonts
+2.  Load Fonts
+
+---------------------------------------------------------------------
+[1. Fonts] */
+/* Open Sans */
+.opensans-bld {
+  font-family: 'open_sansbold'; }
+
+.opensans-bld-ital {
+  font-family: 'open_sansbold_italic'; }
+
+.opensans-ex-bld {
+  font-family: 'open_sansextrabold'; }
+
+.opensans-ex-bld-ital {
+  font-family: 'open_sansextrabold_italic'; }
+
+.opensans-ital {
+  font-family: 'open_sansitalic'; }
+
+.opensans-lgt {
+  font-family: 'open_sanslight'; }
+
+.opensans-lgt-ital {
+  font-family: 'open_sanslight_italic'; }
+
+.opensans-reg, html, body {
+  font-family: 'open_sansregular'; }
+
+.opensans-semi, .thumbnail .caption h3, .cat h3 {
+  font-family: 'open_sanssemibold'; }
+
+.opensans-semi-ital {
+  font-family: 'open_sanssemibold_italic'; }
+
+/* Great Vibes (italic) */
+.greatvibes {
+  font-family: 'great_vibesregular'; }
+
+/* ---------------------------------------------------------------------
+[3. Load Fonts] */
+/* Load Open Sans */
+@font-face {
+  font-family: 'open_sansbold';
+  src: url("../fonts/opensans/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansbold_italic';
+  src: url("../fonts/opensans/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-bolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansextrabold';
+  src: url("../fonts/opensans/opensans-extrabold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansextrabold_italic';
+  src: url("../fonts/opensans/opensans-extrabolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-extrabolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansitalic';
+  src: url("../fonts/opensans/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanslight';
+  src: url("../fonts/opensans/opensans-light-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanslight_italic';
+  src: url("../fonts/opensans/opensans-lightitalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-lightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansregular';
+  src: url("../fonts/opensans/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url("../fonts/opensans/opensans-semibold-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanssemibold_italic';
+  src: url("../fonts/opensans/opensans-semibolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans/opensans-semibolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+/* Load Great Vibes */
+@font-face {
+  font-family: 'great_vibesregular';
+  src: url("../fonts/greatvibes/greatvibes-regular-webfont.woff2") format("woff2"), url("../fonts/greatvibes/greatvibes-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:		Active Mind Fuel
+Version:		1.0
+Last change:	06/09/16 [development, html tags]
+Assigned to:	Active Mind Fuel (AG)
+Primary use:	Website refresh
+---------------------------------------------------------------------
+[Table of contents]
+
+1.  Global
+2.  Custom Classes
+
+---------------------------------------------------------------------
+[1. Global] */
+html, body {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  font-size: 16px; }
+
+.container-fluid {
+  max-width: 1420px;
+  margin: 0 auto; }
+
+footer {
+  background-color: #d8d8d8;
+  text-align: center;
+  padding: 50px 0; }
+  footer .footer-logo {
+    padding: 30px 0; }
+  footer .copyright {
+    font-size: 0.7em; }
+
+section {
+  padding: 50px 0 70px; }
+  section:nth-last-child(1) {
+    margin-top: 50px; }
+
+.client-logo {
+  text-align: center; }
+  .client-logo img {
+    padding: 10px 0;
+    /*width: 100%; height: auto; max-height: 72px;*/ }
+
+/* ---------------------------------------------------------------------
+[1. Footer Address] */
+.address-container {
+  margin-top: -70px; }
+
+.social {
+  text-align: center;
+  margin-left: -40px; }
+  .social li {
+    display: inline-block;
+    text-align: center;
+    padding: 10px; }
+    .social li .icon {
+      border-radius: 50%;
+      border: 1px solid #eee;
+      padding: 10px 15px;
+      text-align: center; }
+      .social li .icon i {
+        width: 25px;
+        height: 25px;
+        margin-top: 10px; }
+
+/* ---------------------------------------------------------------------
+[1. Newsletter] */
+#newsletter {
+  padding: 30px 0;
+  text-align: center; }
+
+.newsletter-container {
+  background-color: #ececec; }
+
+.newsletter-input form {
+  text-align: center !important;
+  margin: 0 auto !important; }
+
+.gform_title {
+  display: none; }
+
+.gform_wrapper {
+  text-align: center !important; }
+  .gform_wrapper form {
+    text-align: center !important;
+    max-width: 500px;
+    margin-top: 30px !important; }
+
+.ginput_container input {
+  padding-left: 10px !important; }
+
+.gform_button {
+  margin-top: 5px;
+  margin-left: -15px;
+  height: 32.75px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  background-color: #00ccff;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1em !important;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.gform_body input {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border: 1px solid #a8a8a8;
+  height: 32.75px;
+  border-right: none; }
 
 /*------------------------------------------------------------------
 [Master Stylesheet]
