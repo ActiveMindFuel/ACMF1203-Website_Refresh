@@ -33,8 +33,9 @@
 			<div class="row">
 				<!-- ARTICLES MODULE -->
 				<div class="article-container">
-					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-						<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
+					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+						<div class="row masonry">
 							<?php
 								$args = array(
 									'post_type' => 'post',
@@ -48,7 +49,7 @@
 								if( $loop->current_post == 0 && !is_paged() ) :
 							?>
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<div class="post-thumbnail-featured">
+									<div class="post-thumbnail-featured item">
 										<div class="post">
 											<?php if (has_post_thumbnail()) : ?>
 												<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a> </figure>
@@ -60,17 +61,23 @@
 									</div>
 								</div>
 							<?php else : ?>
-  								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-									<div class="post-thumbnail flex">
-										<div class="post">
-											<?php if (has_post_thumbnail()) : ?>
-												<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a> </figure>
-											<?php endif; ?>
-											<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
-											<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
-											<p ><?php the_excerpt();?></p>
+  								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  									<!-- <div class="row"> -->
+  									<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 grid-item"> -->
+  									<div class="post-container item">
+										<div class="post-thumbnail">
+											<div class="post">
+												<?php if (has_post_thumbnail()) : ?>
+													<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a> </figure>
+												<?php endif; ?>
+												<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
+												<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
+												<p ><?php the_excerpt();?></p>
+											</div>
 										</div>
 									</div>
+									<!-- </div> -->
+									<!-- </div> -->
 								</div>
 							<?php
 								endif;
@@ -83,6 +90,7 @@
 				<!-- SIDEBAR MODULE -->
 				<div class="sidebar-container">
 					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
 						<?php get_sidebar(); ?>
 					</div>
 				</div>

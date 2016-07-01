@@ -60,15 +60,22 @@ jQuery(document).ready(function($){
 
     var hamburgers = document.querySelectorAll(".hamburger");
     if (hamburgers.length > 0) {
-      forEach(hamburgers, function(hamburger) {
-        hamburger.addEventListener("click", function() {
-          this.classList.toggle("is-active");
-        }, false);
-      });
+    	forEach(hamburgers, function(hamburger) {
+    		hamburger.addEventListener("click", function() {
+    			this.classList.toggle("is-active");
+    		}, false);
+    	});
     };
 
     //tabslet
     //$('.tabs, .tabs-menu').tabslet();
+
+    //masonry-layout
+    $('.grid').masonry({
+		// options
+		itemSelector: '.grid-item',
+		columnWidth: 25
+	});
 
 	/* ---------------------------------------------------------------------
 	[2. Custom jQuery] */

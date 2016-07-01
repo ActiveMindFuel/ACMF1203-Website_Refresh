@@ -57,6 +57,7 @@ function bones_ahoy() {
     wp_enqueue_script( 'bootstrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array('jquery'), true );
     wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js' );
     wp_enqueue_script( 'slick-js', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js' );
+    wp_enqueue_script( 'masonry', '//npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js' );
     //wp_enqueue_script( 'tabslet', get_template_directory_uri() . '/js/jquery.tabslet.min.js', true );
     //wp_enqueue_script( 'video-js', get_template_directory_uri() . '/js/video.js', true );
     wp_enqueue_script( 'magnific-js', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', true );

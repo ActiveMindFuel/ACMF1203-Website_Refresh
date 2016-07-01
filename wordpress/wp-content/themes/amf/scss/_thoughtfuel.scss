@@ -34,3 +34,19 @@ Primary use:	Website refresh
 	.post-thumbnail { height: 100%; }
 }
 
+//.grid-item { margin-top: 0; padding: 0 10px; display: inline-block; float: left; }
+.masonry { /* Masonry container */
+    column-count: 2;
+    //column-gap: 1em;
+}
+.masonry .item:nth-child(1) { /* Masonry container */
+    display: inline-block;
+    //column-gap: 1em;
+}
+
+.item { /* Masonry bricks or child elements */
+    //background-color: #eee;
+    display: inline-block;
+    //margin: 0 0 1em;
+    width: 100%;
+}
