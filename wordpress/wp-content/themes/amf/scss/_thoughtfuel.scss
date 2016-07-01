@@ -25,8 +25,12 @@ Primary use:	Website refresh
 	.article-container { background-color: #ccc; }
 	.sidebar-container { background-color: $red; width: 100%; }
 	//.post img { width: 100%; height: auto; }
-	.post-thumbnail { border: 1px solid #ccc; max-width: 682px; margin-bottom: 30px;
-		h1 { padding: 0 20px; }
+	.post-thumbnail,.post-thumbnail-featured { border: 1px solid $outline; padding-bottom: 20px; margin-bottom: 30px; @include box-shadow(0px 3px 3px 1px rgba($grey,1)); background-color: $white; 
+		h3 { padding: 0 20px; }
 		p { padding: 0 20px; }
+		img { width: 100%; max-width: 1200px; height: auto; }
 	}
+	.post-thumbnail-featured { width: 100%!important; }
+	.post-thumbnail { height: 100%; }
 }
+

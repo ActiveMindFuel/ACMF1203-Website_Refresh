@@ -34,38 +34,6 @@
 				<!-- ARTICLES MODULE -->
 				<div class="article-container">
 					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-
-						<div class="row">
-							<?php
-								$args2 = array(
-									'post_type' => 'post',
-									'posts_per_page' => 5,
-									'meta_key' => 'meta-checkbox',
-									'meta_value' => 'yes'
-								);
-								$featured = new WP_Query($args2);
-								
-								if ($featured->have_posts()): while($featured->have_posts()): $featured->the_post(); 
-							?>
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="post-thumbnail">
-								<div class="post">
-									<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
-									<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
-									<?php if (has_post_thumbnail()) : ?>
-									 
-									<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a> </figure>
-									<p ><?php the_excerpt();?></p>
-								</div>
-								</div>
-								</div>
-							<?php
-								endif;
-								endwhile; else:
-								endif;
-							?>
-						</div>
-						
 						<div class="row">
 							<?php
 								$args = array(
@@ -75,28 +43,41 @@
 									'paged' => get_query_var('page')
 								);
 								$loop = new WP_Query( $args );
-
+	
 								if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title; 
+								if( $loop->current_post == 0 && !is_paged() ) :
 							?>
-								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-									<div class="post-thumbnail">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="post-thumbnail-featured">
 										<div class="post">
+											<?php if (has_post_thumbnail()) : ?>
+												<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a> </figure>
+											<?php endif; ?>
 											<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
 											<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
-											<?php if (has_post_thumbnail()) : ?>
-											 
-											<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a> </figure>
 											<p ><?php the_excerpt();?></p>
-											</div>
 										</div>
 									</div>
+								</div>
+							<?php else : ?>
+  								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+									<div class="post-thumbnail flex">
+										<div class="post">
+											<?php if (has_post_thumbnail()) : ?>
+												<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a> </figure>
+											<?php endif; ?>
+											<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
+											<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
+											<p ><?php the_excerpt();?></p>
+										</div>
+									</div>
+								</div>
 							<?php
 								endif;
 								endwhile; else:
 								endif;
 							?>
 						</div>
-
 					</div>
 				</div>
 				<!-- SIDEBAR MODULE -->
