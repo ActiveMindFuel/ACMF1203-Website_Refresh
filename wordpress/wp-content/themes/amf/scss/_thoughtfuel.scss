@@ -25,7 +25,7 @@ Primary use:	Website refresh
 	.article-container { background-color: #ccc; }
 	.sidebar-container { background-color: $red; width: 100%; }
 	//.post img { width: 100%; height: auto; }
-	.post-thumbnail,.post-thumbnail-featured { border: 1px solid $outline; padding-bottom: 20px; margin-bottom: 30px; @include box-shadow(0px 3px 3px 1px rgba($grey,1)); background-color: $white; 
+	.post-thumbnail,.post-thumbnail-featured { border: 1px solid $outline; padding-bottom: 20px; margin-bottom: 30px; @include box-shadow(0px 3px 3px 1px rgba($grey-dk,0.03)); background-color: $white; 
 		h3 { padding: 0 20px; }
 		p { padding: 0 20px; }
 		img { width: 100%; max-width: 1200px; height: auto; }
@@ -34,19 +34,9 @@ Primary use:	Website refresh
 	.post-thumbnail { height: 100%; }
 }
 
-//.grid-item { margin-top: 0; padding: 0 10px; display: inline-block; float: left; }
-.masonry { /* Masonry container */
-    column-count: 2;
-    //column-gap: 1em;
-}
-.masonry .item:nth-child(1) { /* Masonry container */
-    display: inline-block;
-    //column-gap: 1em;
-}
+.detail { height: 300px; overflow: hidden; }
 
-.item { /* Masonry bricks or child elements */
-    //background-color: #eee;
-    display: inline-block;
-    //margin: 0 0 1em;
-    width: 100%;
-}
+/* ---------------------------------------------------------------------
+[2. Sidebar] */
+
+#sidebar1 .widget { border: 1px solid $outline; padding: 10px; margin-bottom: 10px; @include box-shadow(0px 3px 3px 1px rgba($grey,1)); background-color: $white; }

@@ -35,7 +35,14 @@
 				<div class="article-container">
 					<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-						<div class="row masonry">
+
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<?php the_field( 'masonry' ); ?>
+							</div>
+						</div>
+
+						<div class="row">
 							<?php
 								$args = array(
 									'post_type' => 'post',
@@ -49,7 +56,7 @@
 								if( $loop->current_post == 0 && !is_paged() ) :
 							?>
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<div class="post-thumbnail-featured item">
+									<div class="post-thumbnail-featured">
 										<div class="post">
 											<?php if (has_post_thumbnail()) : ?>
 												<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a> </figure>
@@ -60,31 +67,54 @@
 										</div>
 									</div>
 								</div>
-							<?php else : ?>
-  								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  									<!-- <div class="row"> -->
-  									<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 grid-item"> -->
-  									<div class="post-container item">
-										<div class="post-thumbnail">
-											<div class="post">
-												<?php if (has_post_thumbnail()) : ?>
-													<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a> </figure>
-												<?php endif; ?>
-												<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
-												<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
-												<p ><?php the_excerpt();?></p>
-											</div>
-										</div>
-									</div>
-									<!-- </div> -->
-									<!-- </div> -->
-								</div>
 							<?php
 								endif;
-								endwhile; else:
+								endwhile;
 								endif;
 							?>
 						</div>
+						<div class="row">
+							<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
+								<?php
+									$args = array(
+										'post_type' => 'post',
+										'post_status' => 'publish',
+										'order' => 'DESC',
+										'paged' => get_query_var('page')
+									);
+									$loop = new WP_Query( $args );
+		
+									if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title; 
+									if( $loop->current_post != 0 && !is_paged() ) :
+								?>	
+  									<div class="post-item">
+  										<div class="post-container">
+  											<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+												<div class="post-thumbnail">
+													<div class="post">
+														<?php if (has_post_thumbnail()) : ?>
+															<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a> </figure>
+														<?php endif; ?>
+														<div class="detail">
+															<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
+															<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
+															<p class="small"><?php my_excerpt(20); ?></p>
+															<p class="medium"><?php my_excerpt(20); ?></p>
+															<p class="large"><?php my_excerpt(20); ?></p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								<?php
+									endif;
+									endwhile; else:
+									endif;
+								?>
+							<!-- </div> -->
+						</div>
+						
 					</div>
 				</div>
 				<!-- SIDEBAR MODULE -->
@@ -94,6 +124,9 @@
 						<?php get_sidebar(); ?>
 					</div>
 				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
 			</div>
 		</div>
 	</section>

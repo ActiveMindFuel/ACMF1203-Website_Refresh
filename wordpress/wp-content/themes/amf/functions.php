@@ -58,6 +58,7 @@ function bones_ahoy() {
     wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js' );
     wp_enqueue_script( 'slick-js', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js' );
     wp_enqueue_script( 'masonry', '//npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js' );
+    //wp_enqueue_script( 'salvattore', get_template_directory_uri() . '/js/salvattore.min.js' );
     //wp_enqueue_script( 'tabslet', get_template_directory_uri() . '/js/jquery.tabslet.min.js', true );
     //wp_enqueue_script( 'video-js', get_template_directory_uri() . '/js/video.js', true );
     wp_enqueue_script( 'magnific-js', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', true );
@@ -102,6 +103,55 @@ function new_excerpt_length($length) {
     return 40;
 }
 add_filter('excerpt_length', 'new_excerpt_length');
+
+class Excerpt {
+
+  // Default length (by WordPress)
+  public static $length = 55;
+
+  // So you can call: my_excerpt('short');
+  public static $types = array(
+      'short' => 25,
+      'regular' => 55,
+      'long' => 100
+    );
+
+  /**
+   * Sets the length for the excerpt,
+   * then it adds the WP filter
+   * And automatically calls the_excerpt();
+   *
+   * @param string $new_length 
+   * @return void
+   * @author Baylor Rae'
+   */
+  public static function length($new_length = 55) {
+    Excerpt::$length = $new_length;
+
+    add_filter('excerpt_length', 'Excerpt::new_length');
+
+    Excerpt::output();
+  }
+
+  // Tells WP the new length
+  public static function new_length() {
+    if( isset(Excerpt::$types[Excerpt::$length]) )
+      return Excerpt::$types[Excerpt::$length];
+    else
+      return Excerpt::$length;
+  }
+
+  // Echoes out the excerpt
+  public static function output() {
+    the_excerpt();
+  }
+
+}
+
+// An alias to the class
+function my_excerpt($length = 55) {
+  Excerpt::length($length);
+}
 
 /************* CPT Tags *************/
 
