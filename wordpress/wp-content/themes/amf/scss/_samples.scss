@@ -27,6 +27,8 @@ Primary use:	Website refresh
 	.nav-pills {  }
 }
 
+#samples-thumbnails-module { background-color: $canvas; }
+
 /* ---------------------------------------------------------------------
 [2. Thumbnails] */
 /*
@@ -52,7 +54,7 @@ Primary use:	Website refresh
 		.cat-icon { margin-top: 15px; padding: 7px 10px; border-radius: 50px; border: 1px solid transparent; background-color: $grey; }
 	}
 }
-.thumbnail .cat { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75));
+.thumbnail .cat { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey-dk,0.03));
 	.cat .caption { padding-bottom: 0px!important; margin-bottom: 0px!important;
 	}
 }

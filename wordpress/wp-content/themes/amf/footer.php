@@ -1,5 +1,5 @@
 
-			<footer class="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+			<footer class="footer quote" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 				<div id="contact"></div>
 				<h1><?php bloginfo( 'name' ); ?></h1>
 				<?php get_sidebar( 'address' ); ?>

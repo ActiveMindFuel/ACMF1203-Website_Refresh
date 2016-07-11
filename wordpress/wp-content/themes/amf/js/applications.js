@@ -71,7 +71,7 @@ jQuery(document).ready(function($){
     //$('.tabs, .tabs-menu').tabslet();
 
     //masonry-layout
-    $('.grid').masonry({
+    jQuery('.grid').masonry({
 		// options
 		itemSelector: '.grid-item',
 		columnWidth: 25

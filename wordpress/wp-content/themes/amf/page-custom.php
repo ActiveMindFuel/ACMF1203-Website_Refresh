@@ -16,7 +16,7 @@
 <?php get_header(); ?><div class="wrap-header">
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- HEADER -->
-	<section id="masthead">
+	<section id="masthead" style="background-image:url('<?php the_field( 'mast_header_image' ); ?>');"">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -29,37 +29,23 @@
 	</section>
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- ABOUT MODULE -->
-	<section id="about-module">
+	<section id="about-module" class="quote alt">
 		<div id="about"></div>
 		<div class="container-fluid">
 			<div class="three-col">
 				<div class="row">
+				<?php if( have_rows( 'three_columns' ) ): while( have_rows( 'three_columns' ) ): the_row(); ?>
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<h2>Stimulate</h2>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores amet eveniet, sit et dolore nihil reiciendis blanditiis quasi praesentium, non magni, illum laborum quidem temporibus atque similique optio repellendus eius?
-						</p>
+						<h2><?php the_sub_field( 'column_header' ); ?></h2>
+						<p><?php the_sub_field( 'column_content' ); ?></p>
 					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<h2>Communicate</h2>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel suscipit minima, reprehenderit provident. Soluta placeat beatae maxime, rerum illum reprehenderit, vel quia eum eius repellendus unde perferendis ratione voluptate veritatis.
-						</p>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<h2>Motivate</h2>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ut facere ullam inventore et iusto, asperiores explicabo ex voluptate iste, suscipit porro dignissimos nulla molestiae vitae numquam incidunt quibusdam! Impedit!
-						</p>
-					</div>
+				<?php endwhile; endif; ?>
 				</div>
 			</div>
 			<div class="single-col">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nam enim nostrum soluta amet, placeat natus animi illo quas, ullam porro praesentium, ducimus error temporibus quis eum! Odit vel illo nulla corrupti praesentium officiis neque, tempore soluta, adipisci aspernatur eum natus earum facere enim, saepe vitae accusamus similique. Quasi unde possimus dicta nemo temporibus libero inventore. At consectetur ipsa eos mollitia. Vero quod, fugiat nobis nemo in soluta possimus fuga ea illum deserunt officia. Fugit aperiam repellat iusto quis voluptas quia earum consequuntur. Libero debitis fuga error, aut quia odio repudiandae labore sit rerum, sint, illo, quis tempora a eos!
-						</p>
+						<p><?php the_field( 'single_column' ); ?></p>
 					</div>
 				</div>
 			</div>
@@ -67,31 +53,24 @@
 	</section>
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- SLIDER MODULE -->
-	<section id="slider-module">
+	<section id="slider-module" class="quote">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="slickslider">
-					<div class="slide">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-xs-12"> your content</div>
+					<?php if( have_rows( 'carousel_slides' ) ): while( have_rows( 'carousel_slides' ) ): the_row(); ?>
+						<div class="slide" style="background-image:url('<?php the_sub_field( 'slide_image' ); ?>');">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="slide-detail">
+										<div class="col-xs-12">
+											<h2><?php the_sub_field( 'slide_header' ); ?></h2>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2"><p><?php the_sub_field( 'slide_content' ); ?></p></div>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="slide">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-xs-12"> your content</div>
-							</div>
-						</div>
-					</div>
-					<div class="slide">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-xs-12"> your content</div>
-							</div>
-						</div>
-					</div>
+					<?php endwhile; endif; ?>
 				</div>
 			</div>
 		</div>
@@ -295,7 +274,7 @@
 	<?php get_sidebar( 'newsletter' ); ?>
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- CLIENTS MODULE -->
-	<section id="clients-module">
+	<section id="clients-module" class="quote alt">
 		<div class="container-fluid">
 			<div class="row">
 				<?php if( have_rows( 'clients' ) ): while( have_rows( 'clients' ) ): the_row(); ?>
