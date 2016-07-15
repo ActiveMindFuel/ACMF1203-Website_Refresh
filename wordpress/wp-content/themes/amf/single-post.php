@@ -22,6 +22,36 @@
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="post-thumbnail-featured">
+										<div class="post">
+											<?php if (has_post_thumbnail()) : ?>
+												<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a> </figure>
+											<?php endif; ?>
+											<h3><?php the_title(); ?></h3>
+											<!-- <p class="details">By <a href="<?php //the_author_posts() ?>"><?php //the_author(); ?> </a> / On --><!-- / In <?php //the_category(', '); ?></p> -->
+											<p class="post-date">
+												<?php echo get_the_date('F j, Y'); ?>
+												<ul class="social-sharing">
+													<li><a href="http://andres-imac.local:5757/2nd-post-of-the-day/?share=facebook&nb=1" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+													<li><a href="http://andres-imac.local:5757/2nd-post-of-the-day/?share=linkedin&nb=1" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+													<!-- <li><a data-shared="sharing-twitter-175" href="http://andres-imac.local:5757/2nd-post-of-the-day/?share=twitter&nb=1" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+													<li><a href="http://andres-imac.local:5757/2nd-post-of-the-day/?share=google-plus-1&nb=1" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+												</ul>
+											</p>
+
+											<button type="button" class="modalButton" data-toggle="modal" data-src="https://player.vimeo.com/video/87701971" data-width="500" data-height="281" data-target="#myModal" data-video-fullscreen="">Vimeo</button>
+            
+            								<button type="button" class="modalButton" data-toggle="modal" data-src="https://www.youtube.com/embed/mWRsgZuwf_8" data-width="640" data-height="360" data-target="#myModal" data-video-fullscreen="">Youtube</button>
+            
+											<button type="button" class="modalButton" data-toggle="modal" data-src="https://twitter.com/intent/tweet?text=2nd%20Post%20of%20the%20day%21&url=http%3A%2F%2Flocalhost%3A8888%2F2nd-post-of-the-day%2F" data-width="600" data-height="450" data-target="#myModal">Google maps</button>
+
+											<p class="post-padding"><?php the_content(); ?></p>
+										</div>
+									</div>
+								</div>
+
+						
 
 							<?php
 								/*
@@ -37,7 +67,7 @@
 								 * If you want to remove post formats, just delete the post-formats folder and
 								 * replace the function below with the contents of the "format.php" file.
 								*/
-								get_template_part( 'post-formats/format', get_post_format() );
+								
 							?>
 
 						<?php endwhile; ?>

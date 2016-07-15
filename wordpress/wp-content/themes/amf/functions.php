@@ -208,6 +208,7 @@ add_filter('acf/update_value/name=cursusfoto', 'acf_set_featured_image', 10, 3);
 // Thumbnail sizes
 add_image_size( 'bones-thumb-600', 600, 150, true );
 add_image_size( 'bones-thumb-300', 300, 100, true );
+add_image_size( 'bones-thumb-50', 70, 50, true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -235,6 +236,7 @@ function bones_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'bones-thumb-600' => __('600px by 150px'),
         'bones-thumb-300' => __('300px by 100px'),
+        'bones-thumb-50' => __('70px by 50px'),
     ) );
 }
 

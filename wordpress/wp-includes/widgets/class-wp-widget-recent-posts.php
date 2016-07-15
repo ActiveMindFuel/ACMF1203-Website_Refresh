@@ -79,10 +79,15 @@ class WP_Widget_Recent_Posts extends WP_Widget {
 		<?php if ( $title ) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		} ?>
-		<ul>
+		<ul class="recentposts">
 		<?php while ( $r->have_posts() ) : $r->the_post(); ?>
 			<li>
-				<a href="<?php the_permalink(); ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('bones-thumb-50'); ?>
+				<div class="postdetail-container">
+					<span class="post-title"><?php get_the_title() ? the_title() : the_ID(); ?></span>
+					<span class="post-date"><?php the_date(); ?></span>
+				</div>
+				</a>
 			<?php if ( $show_date ) : ?>
 				<span class="post-date"><?php echo get_the_date(); ?></span>
 			<?php endif; ?>

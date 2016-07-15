@@ -82,7 +82,7 @@ Primary use:	Website refresh
 .opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3 {
+.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -171,7 +171,8 @@ html, body {
   margin: 0 auto;
   width: 100%;
   padding: 0;
-  font-size: 16px; }
+  font-size: 16px;
+  color: #222; }
 
 .container-fluid {
   max-width: 1420px;
@@ -590,7 +591,7 @@ Primary use:	Website refresh
 .opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3 {
+.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -679,7 +680,8 @@ html, body {
   margin: 0 auto;
   width: 100%;
   padding: 0;
-  font-size: 16px; }
+  font-size: 16px;
+  color: #222; }
 
 .container-fluid {
   max-width: 1420px;
@@ -977,7 +979,7 @@ Primary use:	Website refresh
 .opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3 {
+.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -1066,7 +1068,8 @@ html, body {
   margin: 0 auto;
   width: 100%;
   padding: 0;
-  font-size: 16px; }
+  font-size: 16px;
+  color: #222; }
 
 .container-fluid {
   max-width: 1420px;
@@ -1201,7 +1204,7 @@ section {
       margin-bottom: 7px; }
     .thumbnail .caption span {
       font-size: 0.8em;
-      color: #aaa;
+      color: #999;
       font-weight: 400; }
     .thumbnail .caption .cat-icon {
       margin-top: 15px;
@@ -1232,8 +1235,8 @@ section {
   margin-bottom: 0px !important; }
 
 .cat span {
-  font-size: 0.8em;
-  color: #aaa;
+  font-size: 0.725em;
+  color: #999;
   font-weight: 400; }
 
 .cat .cat-icon {
@@ -1397,7 +1400,7 @@ Primary use:	Website refresh
 .opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3 {
+.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -1486,7 +1489,8 @@ html, body {
   margin: 0 auto;
   width: 100%;
   padding: 0;
-  font-size: 16px; }
+  font-size: 16px;
+  color: #222; }
 
 .container-fluid {
   max-width: 1420px;
@@ -1603,11 +1607,27 @@ section {
     #articles-module .post-thumbnail img, #articles-module .post-thumbnail-featured img {
       width: 100%;
       max-width: 1200px;
-      height: auto; }
+      height: auto;
+      border-bottom: 1px solid rgba(221, 221, 221, 0.5); }
   #articles-module .post-thumbnail-featured {
     width: 100% !important; }
   #articles-module .post-thumbnail {
     height: 100%; }
+
+.post-date {
+  font-size: 0.725em;
+  color: #999;
+  text-transform: uppercase; }
+  .post-date:before {
+    content: '\f073';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding-right: 7px; }
+
+.post-padding {
+  padding: 5px 0 !important; }
 
 .detail {
   height: 300px;
@@ -1623,6 +1643,70 @@ section {
   -moz-box-shadow: 0px 3px 3px 1px whitesmoke;
   box-shadow: 0px 3px 3px 1px whitesmoke;
   background-color: #fff; }
+  #sidebar1 .widget h4 {
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+    padding-bottom: 10px; }
+
+.tagcloud a {
+  font-size: 0.725em !important;
+  color: #999;
+  padding-right: 7px; }
+  .tagcloud a:before {
+    content: '\f02b';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding-right: 3px; }
+
+.widget_archive ul li {
+  list-style-type: none;
+  margin-left: -40px; }
+  .widget_archive ul li a {
+    font-size: 0.725em;
+    color: #999;
+    text-transform: uppercase; }
+    .widget_archive ul li a:before {
+      content: '\f187';
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+      padding-right: 7px; }
+
+.recentposts li {
+  list-style-type: none;
+  margin-left: -40px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+  padding-bottom: 10px; }
+  .recentposts li:nth-last-child(1) {
+    border-bottom: none; }
+  .recentposts li img {
+    border: 1px solid #ddd; }
+  .recentposts li .postdetail-container {
+    position: absolute; }
+  .recentposts li .post-title {
+    margin-top: -50px;
+    display: block;
+    margin-left: 80px;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    color: #222; }
+  .recentposts li .post-date {
+    display: block;
+    margin-left: 80px;
+    font-size: 0.725em;
+    color: #999;
+    text-transform: uppercase; }
+    .recentposts li .post-date:before {
+      content: '\f073';
+      /*\f133*/
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+      padding-right: 7px; }
 
 /*------------------------------------------------------------------
 [Master Stylesheet]
@@ -1713,7 +1797,7 @@ Primary use:	Website refresh
 .opensans-reg, html, body {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3 {
+.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
@@ -1802,7 +1886,8 @@ html, body {
   margin: 0 auto;
   width: 100%;
   padding: 0;
-  font-size: 16px; }
+  font-size: 16px;
+  color: #222; }
 
 .container-fluid {
   max-width: 1420px;
