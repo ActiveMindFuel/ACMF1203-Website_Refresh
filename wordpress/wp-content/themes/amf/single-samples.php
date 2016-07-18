@@ -1,14 +1,13 @@
 <?php get_header(); ?><div class="wrap-header">
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- HEADER -->
-	<section id="samples-module">
+	
+	
+	<section id="samples-module" class="interactive-header">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="header-img">
-						<?php //foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?>
-					</div>
-					</div>								
+					<div class="header-img"><?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?></div>
 				</div>
 			</div>
 		</div>
@@ -17,7 +16,7 @@
 	<!-- SAMPLE SLIDER MODULE -->
 	<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
 		<?php 
-           $images = get_sub_field( 'sample_iamge' ); 
+           $images = get_sub_field( 'sample_images' ); 
            $video = get_sub_field( 'sample_video' );
            if( $images ) {
         ?>
