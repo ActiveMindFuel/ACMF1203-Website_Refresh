@@ -23,9 +23,14 @@ Primary use:	Website refresh
 /* ---------------------------------------------------------------------
 [1. Samples sub menu] */
 
-#samples-module {
-	.nav-pills {  }
-}
+.nav-pills>li>a { color: $font-alt; background-color: transparent!important; &hover { background-color: transparent!important;  } }
+//.nav-pills>li>a:hover { color: $black!important; }
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover { background-color: transparent!important; }
+.nav-pills>li.interactive.active>a, .nav-pills>li.interactive.active>a:focus, .nav-pills>li.interactive.active>a:hover, .nav-pills>li.interactive>a:hover { color: $blue!important; }
+.nav-pills>li.motion.active>a, .nav-pills>li.motion.active>a:focus, .nav-pills>li.motion.active>a:hover, .nav-pills>li.motion>a:hover { color: $green-lt; }
+.nav-pills>li.environment.active>a, .nav-pills>li.environment.active>a:focus, .nav-pills>li.environment.active>a:hover, .nav-pills>li.environment>a:hover { color: $purple; }
+.nav-pills>li.web.active>a, .nav-pills>li.web.active>a:focus, .nav-pills>li.web.active>a:hover, .nav-pills>li.web>a:hover { color: $orange; }
+.nav-pills>li.print.active>a, .nav-pills>li.print.active>a:focus, .nav-pills>li.print.active>a:hover, .nav-pills>li.print>a:hover { color: $red; }
 
 #samples-thumbnails-module { background-color: $canvas; }
 
@@ -48,10 +53,11 @@ Primary use:	Website refresh
 .thumb img { width: 100%; }
 .thumbnail-container { display: block-inline; }
 .thumbnail { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75));
-	.caption { padding-bottom: 10px; margin-bottom: 30px;
+	.caption { padding-bottom: 15px; margin-bottom: 30px;
 		h3 { font-size: 1.10em; margin-top: 7px; margin-bottom: 7px; @extend .opensans-semi; }
-		span { font-size: 0.8em; color: $font-alt; font-weight: 400; }
-		.cat-icon { margin-top: 15px; padding: 7px 10px; border-radius: 50px; border: 1px solid transparent; background-color: $grey; }
+		span { color: $font-alt; font-weight: 400; /*line-height: 0.25em!important;*/ }
+		.thumb-title span { font-size: 0.8em; line-height: 2em!important; }
+		.cat-icon { margin-top: 5px; padding: 0px 10px; padding-bottom: 4px; border-radius: 5px; border: 1px solid transparent; background-color: $grey; span { font-size: 0.6em!important; } }
 	}
 }
 .thumbnail .cat { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey-dk,0.03));
@@ -62,8 +68,8 @@ Primary use:	Website refresh
 .cat img { width: 100%; }
 //.cat .coption { padding-bottom: 0px!important; margin-bottom: 0px!important; }
 .cat h3 { font-size: 1.10em; margin-top: 0px!important; margin-bottom: 0px!important; @extend .opensans-semi; }
-.cat span { font-size: 0.725em; color: $font-alt; font-weight: 400; }
-.cat .cat-icon { margin-top: 0px!important; margin-right: 10px; padding: 4px 7px; border-radius: 50px; border: 1px solid transparent; background-color: $grey; font-size: 0.8em; }
+.cat span { /*font-size: 0.725em;*/ color: $font-alt; font-weight: 400; /*line-height: 0.25em!important;*/ }
+.cat .cat-icon { /*margin-top: 0px!important;*/ margin-right: 10px; padding: 0px 0px; border-radius: 25px; border: 1px solid transparent; background-color: $grey; /*font-size: 0.8em;*/ }
 .cat .col-xs-7 { padding-left: 0!important; padding-right: 0!important; }
 .cat .col-xs-3 { padding-left: 0!important; padding-right: 0!important; }
 
@@ -72,7 +78,7 @@ Primary use:	Website refresh
 
 #samples-slider-module { margin-top: -350px;
 	.slickslider-samples img, { margin: 0 auto!important; }
-	.slide img { border: 1px solid #eee; width: 100%; max-width: 1000px; height: auto; }
+	.slide img { border: 1px solid #eee; width: 100%; max-width: 1000px; height: auto; background-color: $black; }
 	.slide-thumb { /*width: 150px!important; height: 150px!important;*/ margin: 0 10px; &:nth-child(1) { margin-left: 0; } border: 1px solid #eee; text-align: center; img {  width: 100%; height: auto; text-align: center; } }
 	.slider-nav { margin-top: 50px; }
 	.slider-nav .slick-track { width: 100%!important; margin-left: 0!important; }
@@ -90,7 +96,7 @@ Primary use:	Website refresh
 [3. Samples Video] */
 #samples-video-module,#samples-capabilities_video-module { margin-top: -350px; 
 	.video-container { text-align: center; }
-	video { width: 100%; max-width: 1200px; border: 1px solid #ddd; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75)); }
+	video { width: 100%; max-width: 1200px; border: 1px solid #ddd; background-color: $black; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75)); }
 }
 
 /* ---------------------------------------------------------------------
@@ -98,3 +104,5 @@ Primary use:	Website refresh
 #sample-description { text-align: center; 
 	h1 { padding-bottom: 20px; }
 }
+
+#tags { background-color: $canvas; }

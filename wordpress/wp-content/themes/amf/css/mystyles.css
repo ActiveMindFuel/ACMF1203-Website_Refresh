@@ -810,6 +810,8 @@ section {
   padding: 50px 0;
   width: 100%;
   height: 400px; }
+  #samples-module .interactive-header {
+    background-color: #00ccff !important; }
 
 .header-img {
   text-align: center; }
@@ -817,6 +819,9 @@ section {
 .header-logo {
   width: 100%;
   max-width: 579px; }
+
+.interactive-header {
+  background-color: #00ccff !important; }
 
 /*------------------------------------------------------------------
 [Master Stylesheet]
@@ -862,6 +867,7 @@ Primary use:	Website refresh
 /* ---------------------------------------------------------------------
 [1. Slider] */
 #slider-module {
+  padding: 0 !important;
   /* slick slider */ }
   #slider-module .slide {
     width: 100%;
@@ -1164,6 +1170,30 @@ section {
 
 /* ---------------------------------------------------------------------
 [1. Samples sub menu] */
+.nav-pills > li > a {
+  color: #999;
+  background-color: transparent !important; }
+  .nav-pills > li > ahover {
+    background-color: transparent !important; }
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+  background-color: transparent !important; }
+
+.nav-pills > li.interactive.active > a, .nav-pills > li.interactive.active > a:focus, .nav-pills > li.interactive.active > a:hover, .nav-pills > li.interactive > a:hover {
+  color: #00ccff !important; }
+
+.nav-pills > li.motion.active > a, .nav-pills > li.motion.active > a:focus, .nav-pills > li.motion.active > a:hover, .nav-pills > li.motion > a:hover {
+  color: #b6d44f; }
+
+.nav-pills > li.environment.active > a, .nav-pills > li.environment.active > a:focus, .nav-pills > li.environment.active > a:hover, .nav-pills > li.environment > a:hover {
+  color: #724d92; }
+
+.nav-pills > li.web.active > a, .nav-pills > li.web.active > a:focus, .nav-pills > li.web.active > a:hover, .nav-pills > li.web > a:hover {
+  color: #e66206; }
+
+.nav-pills > li.print.active > a, .nav-pills > li.print.active > a:focus, .nav-pills > li.print.active > a:hover, .nav-pills > li.print > a:hover {
+  color: #b83535; }
+
 #samples-thumbnails-module {
   background-color: #f8f8f8; }
 
@@ -1196,22 +1226,28 @@ section {
   -moz-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
   box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75); }
   .thumbnail .caption {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     margin-bottom: 30px; }
     .thumbnail .caption h3 {
       font-size: 1.10em;
       margin-top: 7px;
       margin-bottom: 7px; }
     .thumbnail .caption span {
-      font-size: 0.8em;
       color: #999;
-      font-weight: 400; }
+      font-weight: 400;
+      /*line-height: 0.25em!important;*/ }
+    .thumbnail .caption .thumb-title span {
+      font-size: 0.8em;
+      line-height: 2em !important; }
     .thumbnail .caption .cat-icon {
-      margin-top: 15px;
-      padding: 7px 10px;
-      border-radius: 50px;
+      margin-top: 5px;
+      padding: 0px 10px;
+      padding-bottom: 4px;
+      border-radius: 5px;
       border: 1px solid transparent;
       background-color: #f5f5f5; }
+      .thumbnail .caption .cat-icon span {
+        font-size: 0.6em !important; }
 
 .thumbnail .cat {
   padding: 0;
@@ -1235,18 +1271,19 @@ section {
   margin-bottom: 0px !important; }
 
 .cat span {
-  font-size: 0.725em;
+  /*font-size: 0.725em;*/
   color: #999;
-  font-weight: 400; }
+  font-weight: 400;
+  /*line-height: 0.25em!important;*/ }
 
 .cat .cat-icon {
-  margin-top: 0px !important;
+  /*margin-top: 0px!important;*/
   margin-right: 10px;
-  padding: 4px 7px;
-  border-radius: 50px;
+  padding: 0px 0px;
+  border-radius: 25px;
   border: 1px solid transparent;
   background-color: #f5f5f5;
-  font-size: 0.8em; }
+  /*font-size: 0.8em;*/ }
 
 .cat .col-xs-7 {
   padding-left: 0 !important;
@@ -1274,7 +1311,8 @@ section {
     border: 1px solid #eee;
     width: 100%;
     max-width: 1000px;
-    height: auto; }
+    height: auto;
+    background-color: #000; }
   #samples-slider-module .slide-thumb {
     /*width: 150px!important; height: 150px!important;*/
     margin: 0 10px;
@@ -1302,6 +1340,7 @@ section {
     width: 100%;
     max-width: 1200px;
     border: 1px solid #ddd;
+    background-color: #000;
     -webkit-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
     -moz-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
     box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75); }
@@ -1312,6 +1351,9 @@ section {
   text-align: center; }
   #sample-description h1 {
     padding-bottom: 20px; }
+
+#tags {
+  background-color: #f8f8f8; }
 
 /*------------------------------------------------------------------
 [Master Stylesheet]
@@ -1623,7 +1665,7 @@ section {
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
-    text-decoration: inherit;
+    text-decoration: none;
     padding-right: 7px; }
 
 .post-padding {
@@ -1632,6 +1674,24 @@ section {
 .detail {
   height: 300px;
   overflow: hidden; }
+
+.social-sharing li {
+  display: inline-block;
+  padding: 4px !important;
+  font-size: 0.8em; }
+  .social-sharing li a {
+    color: #999; }
+    .social-sharing li a:hover {
+      color: #f0347f; }
+
+.date, .social {
+  display: inline-block; }
+
+.date {
+  margin-left: 20px; }
+
+.social {
+  margin-left: -20px !important; }
 
 /* ---------------------------------------------------------------------
 [2. Sidebar] */
@@ -1651,6 +1711,9 @@ section {
   font-size: 0.725em !important;
   color: #999;
   padding-right: 7px; }
+  .tagcloud a:hover {
+    color: #f0347f;
+    text-decoration: none; }
   .tagcloud a:before {
     content: '\f02b';
     font-family: FontAwesome;
@@ -1666,6 +1729,9 @@ section {
     font-size: 0.725em;
     color: #999;
     text-transform: uppercase; }
+    .widget_archive ul li a:hover {
+      color: #f0347f;
+      text-decoration: none; }
     .widget_archive ul li a:before {
       content: '\f187';
       font-family: FontAwesome;
@@ -1693,6 +1759,8 @@ section {
     font-size: 0.85em;
     text-transform: uppercase;
     color: #222; }
+    .recentposts li .post-title:hover {
+      color: #f0347f; }
   .recentposts li .post-date {
     display: block;
     margin-left: 80px;
@@ -1984,7 +2052,8 @@ section {
 [1. Newsletter] */
 #newsletter {
   padding: 50px 0;
-  text-align: center; }
+  text-align: center;
+  margin: 0; }
 
 .newsletter-container {
   background-color: #ececec; }

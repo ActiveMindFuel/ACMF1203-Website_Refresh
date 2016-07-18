@@ -30,21 +30,17 @@
 											<?php endif; ?>
 											<h3><?php the_title(); ?></h3>
 											<!-- <p class="details">By <a href="<?php //the_author_posts() ?>"><?php //the_author(); ?> </a> / On --><!-- / In <?php //the_category(', '); ?></p> -->
-											<p class="post-date">
-												<?php echo get_the_date('F j, Y'); ?>
-												<ul class="social-sharing">
-													<li><a href="http://andres-imac.local:5757/2nd-post-of-the-day/?share=facebook&nb=1" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-													<li><a href="http://andres-imac.local:5757/2nd-post-of-the-day/?share=linkedin&nb=1" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-													<!-- <li><a data-shared="sharing-twitter-175" href="http://andres-imac.local:5757/2nd-post-of-the-day/?share=twitter&nb=1" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
-													<li><a href="http://andres-imac.local:5757/2nd-post-of-the-day/?share=google-plus-1&nb=1" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-												</ul>
+											<p>
+												<div class="date"><span class="post-date"><?php echo get_the_date('F j, Y'); ?></span></div>
+												<div class="social">
+													<ul class="social-sharing">
+														<li><a target="_blank" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+														<li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;title=<?php the_title(); ?>&amp;url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+														<li><a target="_blank" href="http://twitter.com/share?text=<?php echo urlencode(the_title()); ?>&url=<?php echo urlencode(the_permalink()); ?>" title="Share on Twitter" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+														<li><a target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+													</ul>
+												</div>
 											</p>
-
-											<button type="button" class="modalButton" data-toggle="modal" data-src="https://player.vimeo.com/video/87701971" data-width="500" data-height="281" data-target="#myModal" data-video-fullscreen="">Vimeo</button>
-            
-            								<button type="button" class="modalButton" data-toggle="modal" data-src="https://www.youtube.com/embed/mWRsgZuwf_8" data-width="640" data-height="360" data-target="#myModal" data-video-fullscreen="">Youtube</button>
-            
-											<button type="button" class="modalButton" data-toggle="modal" data-src="https://twitter.com/intent/tweet?text=2nd%20Post%20of%20the%20day%21&url=http%3A%2F%2Flocalhost%3A8888%2F2nd-post-of-the-day%2F" data-width="600" data-height="450" data-target="#myModal">Google maps</button>
 
 											<p class="post-padding"><?php the_content(); ?></p>
 										</div>

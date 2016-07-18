@@ -36,6 +36,10 @@ Primary use:	Website refresh
 /* ---------------------------------------------------------------------
 [2. Samples] */
 
-#samples-module { background-color: $purple; padding: 50px 0; width: 100%; height: 400px; }
+#samples-module { background-color: $purple; padding: 50px 0; width: 100%; height: 400px; 
+	.interactive-header { background-color: $blue!important; }
+}
 .header-img { text-align: center; }
 .header-logo { width: 100%; max-width: 579px; }
+//.interactive-header { background-color: $red; }
+.interactive-header { background-color: $blue!important; }

@@ -91,13 +91,6 @@
      					 	'menu_class'        => 'nav nav-pills pull-right')
      					);
      				?>
-     				<!--
-					<ul class="nav nav-pills pull-right">
-					  <li role="presentation" class="active"><a href="#home">Home</a></li>
-					  <li role="presentation"><a href="#profile">Profile</a></li>
-					  <li role="presentation"><a href="#">Messages</a></li>
-					</ul>
-					-->
 				</div>
 			</div>
 			<div class="tab-content tabs-module-two-flex-container">
@@ -118,13 +111,103 @@
 					?>
 						<div class="thumbnail-container">
 							<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
-								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+								<div class="col-xs-12 col-ms-6 col-sm-4 col-md-3 col-lg-3">
 									<div class="thumbnail">
 									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
     									<div class="caption">
-    										<h3><?php the_title(); ?></h3>
-    										<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
-    										<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    										<div class="thumb-title">
+    											<h3 class="xsmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 28;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="xsmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 40;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="msmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="msmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 20;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="small">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 16;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="small">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 23;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="medium">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="medium">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 22;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="large">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 20;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="large">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 28;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    										</div>
+    										<div class="cat-icon pull-right"><span>interacitve</span><!-- <i class="fa fa-info" aria-hidden="true"></i> --></div>
     									</div>
     								</div>
 								</div>
@@ -154,9 +237,99 @@
 									<div class="thumbnail">
 									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
     									<div class="caption">
-    										<h3><?php the_title(); ?></h3>
-    										<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
-    										<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    										<div class="thumb-title">
+    											<h3 class="xsmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 28;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="xsmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 40;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="msmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="msmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 20;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="small">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 16;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="small">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 23;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="medium">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="medium">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 22;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="large">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 20;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="large">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 28;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    										</div>
+    										<div class="cat-icon pull-right"><span>sound &amp; motion</span></div>
     									</div>
     								</div>
 								</div>
@@ -186,9 +359,99 @@
 									<div class="thumbnail">
 									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
     									<div class="caption">
-    										<h3><?php the_title(); ?></h3>
-    										<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
-    										<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    										<div class="thumb-title">
+    											<h3 class="xsmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 28;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="xsmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 40;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="msmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="msmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 20;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="small">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 16;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="small">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 23;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="medium">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="medium">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 22;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="large">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 20;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="large">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 28;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    										</div>
+    										<div class="cat-icon pull-right"><span>environments</span></div>
     									</div>
     								</div>
 								</div>
@@ -218,9 +481,221 @@
 									<div class="thumbnail">
 									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
     									<div class="caption">
-    										<h3><?php the_title(); ?></h3>
-    										<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
-    										<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    										<div class="thumb-title">
+    											<h3 class="xsmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 28;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="xsmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 40;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="msmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="msmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 20;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="small">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 16;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="small">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 23;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="medium">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="medium">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 22;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="large">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 20;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="large">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 28;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    										</div>
+    										<div class="cat-icon pull-right"><span>web</span></div>
+    									</div>
+    								</div>
+								</div>
+							<?php endwhile; endif; ?>
+						</div>
+					<?php endwhile; wp_reset_postdata(); ?>
+					<?php endif; ?>
+				</div>
+
+				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="print">
+					<?php
+						$args2 = array(
+							'post_type' => 'samples',
+							'cat' => '8',
+							'post_status' => 'publish',
+							'posts_per_page' => -1,
+							'order' => 'DESC',
+							'paged' => get_query_var('page')
+						);
+
+						$loop = new WP_Query( $args2 );
+						if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
+					?>
+						<div class="thumbnail-container">
+							<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+									<div class="thumbnail">
+									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
+    									<div class="caption">
+    										<div class="thumb-title">
+    											<h3 class="xsmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 28;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="xsmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 40;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="msmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="msmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 20;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="small">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 16;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="small">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 23;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="medium">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="medium">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 22;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="large">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 20;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="large">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 28;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    										</div>
+    										<div class="cat-icon pull-right"><span>print</span></div>
     									</div>
     								</div>
 								</div>

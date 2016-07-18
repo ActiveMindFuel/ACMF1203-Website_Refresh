@@ -6,6 +6,8 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="header-img">
+						<?php //foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?>
+					</div>
 					</div>								
 				</div>
 			</div>
@@ -114,10 +116,100 @@
 										<div class="col-xs-5 col-sm-5 col-md-6 col-lg-5"><a href="<?php the_permalink(); ?>"><span class="img-container"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a></span></div>
 										<div class="col-xs-7 col-sm-7 col-md-6 col-lg-7">
 											<div class="caption">
-    											<h3><?php the_title(); ?></h3>
-    											<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
-    											<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    										<div class="thumb-title">
+    											<h3 class="xsmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 28;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="xsmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 40;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="msmall">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="msmall">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 20;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="small">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 16;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="small">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 23;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="medium">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 15;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="medium">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 22;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
+    											<h3 class="large">
+    												<?php 
+    													$thetitle = $post->post_title;
+														$getlength = strlen($thetitle);
+														$thelength = 20;
+														echo substr($thetitle, 0, $thelength);
+														if ($getlength > $thelength) echo "..."; 
+													?>
+    											</h3>
+    											<span class="large">
+    											<?php 
+    												$thetitle = get_sub_field( 'sample_thumbnail_description' );
+													$getlength = strlen($thetitle);
+													$thelength = 28;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "...";
+    											?>
+    											</span>
     										</div>
+    										<div class="cat-icon pull-right"><span><?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?></span></div>
+    									</div>
 										</div>
 									</div>
     							</div>
