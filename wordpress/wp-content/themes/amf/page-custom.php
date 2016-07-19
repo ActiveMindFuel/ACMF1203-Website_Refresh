@@ -98,8 +98,14 @@
 					<?php
 						$args1 = array(
 							'post_type' => 'samples',
-							'cat' => '4',
-							//'taxonmy' => '12',
+							'tax_query' => array(
+  								array(
+  								  'taxonomy' => 'core_capabilities',
+  								  'field' => 'slug',
+  								  'terms' => 'interactive'
+  								)
+  							),
+							//'cat' => '4',
 							'post_status' => 'publish',
 							'posts_per_page' => -1,
 							'order' => 'DESC',
@@ -116,6 +122,7 @@
 									<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
     									<div class="caption">
     										<div class="thumb-title">
+    											<!-- <p><?php //the_tags(); ?></p> -->
     											<h3 class="xsmall">
     												<?php 
     													$thetitle = $post->post_title;
@@ -221,7 +228,14 @@
 					<?php
 						$args2 = array(
 							'post_type' => 'samples',
-							'cat' => '5',
+							'tax_query' => array(
+  								array(
+  								  'taxonomy' => 'core_capabilities',
+  								  'field' => 'slug',
+  								  'terms' => 'motion'
+  								)
+  							),
+							//'cat' => '5',
 							'post_status' => 'publish',
 							'posts_per_page' => -1,
 							'order' => 'DESC',
@@ -343,7 +357,14 @@
 					<?php
 						$args2 = array(
 							'post_type' => 'samples',
-							'cat' => '6',
+							'tax_query' => array(
+  								array(
+  								  'taxonomy' => 'core_capabilities',
+  								  'field' => 'slug',
+  								  'terms' => 'environments'
+  								)
+  							),
+							//'cat' => '6',
 							'post_status' => 'publish',
 							'posts_per_page' => -1,
 							'order' => 'DESC',
@@ -465,7 +486,14 @@
 					<?php
 						$args2 = array(
 							'post_type' => 'samples',
-							'cat' => '7',
+							'tax_query' => array(
+  								array(
+  								  'taxonomy' => 'core_capabilities',
+  								  'field' => 'slug',
+  								  'terms' => 'web'
+  								)
+  							),
+							//'cat' => '7',
 							'post_status' => 'publish',
 							'posts_per_page' => -1,
 							'order' => 'DESC',
@@ -587,7 +615,14 @@
 					<?php
 						$args2 = array(
 							'post_type' => 'samples',
-							'cat' => '8',
+							'tax_query' => array(
+  								array(
+  								  'taxonomy' => 'core_capabilities',
+  								  'field' => 'slug',
+  								  'terms' => 'print'
+  								)
+  							),
+							//'cat' => '8',
 							'post_status' => 'publish',
 							'posts_per_page' => -1,
 							'order' => 'DESC',
@@ -715,7 +750,14 @@
 				<?php
 					$args2 = array(
 						'post_type' => 'samples',
-						'cat' => '4',
+						'tax_query' => array(
+  							array(
+  							  'taxonomy' => 'core_capabilities',
+  							  'field' => 'slug',
+  							  'terms' => 'case-study'
+  							)
+  						),
+						//'cat' => '4',
 						'post_status' => 'publish',
 						'posts_per_page' => 3,
 						'order' => 'DESC',
@@ -731,9 +773,105 @@
 								<div class="thumbnail">
 								<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
     								<div class="caption">
-    									<h3><?php the_title(); ?></h3>
-    									<span><?php the_sub_field( 'sample_thumbnail_description' ); ?></span>
-    									<div class="cat-icon pull-right"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    									<div class="thumb-title">
+    										<h3 class="xsmall">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 28;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="xsmall">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 40;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    										<h3 class="msmall">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 15;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="msmall">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 20;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    										<h3 class="small">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 16;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="small">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 23;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    										<h3 class="medium">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 15;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="medium">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 22;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    										<h3 class="large">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 20;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="large">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 28;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    									</div>
+    									<div class="cat-icon pull-right">
+    										<span>
+    											<?php $terms = get_the_terms( $post->id, 'core_capabilities' ); 
+    												foreach ( $terms as $term ) { echo $term->name . ' '; 
+    											} ?>
+    										</span>
+    									</div>
     								</div>
     							</div>
 							</div>

@@ -47,12 +47,28 @@ Primary use:	Website refresh
 #sidebar1 .widget { border: 1px solid $outline; padding: 10px; margin-bottom: 10px; @include box-shadow(0px 3px 3px 1px rgba($grey,1)); background-color: $white; h4 { border-bottom: 1px solid rgba($outline, 0.5); padding-bottom: 10px; } }
 .tagcloud { a { font-size: 0.725em!important; color: $font-alt; &:hover { color: $pink; text-decoration: none; } padding-right: 7px; &:before { content: '\f02b'; font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: inherit; padding-right: 3px; } } }
 .widgettitle { @extend .opensans-semi; }
-.widget_archive { ul li { list-style-type: none; margin-left: -40px; a { font-size: 0.725em; color: $font-alt; &:hover { color: $pink; text-decoration: none; } text-transform: uppercase; &:before { content: '\f187'; font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: inherit; padding-right: 7px; } } } }
+.widget_archive { 
+	ul li { list-style-type: none; margin-left: -40px;
+		a { font-size: 0.725em; color: $font-alt; text-transform: uppercase; 
+			&:hover { color: $pink; text-decoration: none; }
+			&:before { content: '\f187'; font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: inherit; padding-right: 7px; } 
+		} 
+	} 
+}
 .recentposts { 
 	li { list-style-type: none; margin-left: -40px; margin-bottom: 10px; border-bottom: 1px solid rgba($outline, 0.5); padding-bottom: 10px; &:nth-last-child(1) { border-bottom: none; }
 		img { border: 1px solid $outline; } 
 		.postdetail-container { position: absolute; }
-		.post-title { margin-top: -50px; display: block; margin-left: 80px; font-size: 0.85em; text-transform: uppercase; color: $font; &:hover { color: $pink; } } 
+		.post-title { margin-top: -50px; display: block; margin-left: 80px; padding-right: 18px; font-size: 0.85em; text-transform: uppercase; background-color: transparent!important; color: $font; &:hover { color: $pink; } } 
 		.post-date { display: block; margin-left: 80px; font-size: 0.725em; color: $font-alt; text-transform: uppercase; &:before { content: '\f073';/*\f133*/ font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: inherit; padding-right: 7px; } }
 	} 
 }
+
+/* ---------------------------------------------------------------------
+[2. archive-header] */
+.post-thumbnail {
+	.search { padding: 25px 15px 0; text-align: left; font-size: 1.5em; float: left; display: inline-block; }
+	.cat-title { flaot: left; display: inline-block; color: $font-alt; }
+	.page-title { padding: 7px 15px 0; text-align: left; font-size: 1.5em; @extend .opensans-reg; font-weight: 400; }
+	.taxonomy-description { color: $font-alt!important; }
+} 

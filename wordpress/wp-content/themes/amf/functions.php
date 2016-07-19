@@ -188,6 +188,71 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 680;
 }
 
+/************* CUSTOM TAXONOMIES *************/
+
+/**
+ * Add custom taxonomies
+ *
+ * Additional custom taxonomies can be defined here
+ * http://codex.wordpress.org/Function_Reference/register_taxonomy
+ */
+function add_custom_taxonomies() {
+  // Add new "Locations" taxonomy to Posts
+  register_taxonomy('core_capabilities', 'samples', array(
+    // Hierarchical taxonomy (like categories)
+    'hierarchical' => true,
+    // This array of options controls the labels displayed in the WordPress Admin UI
+    'labels' => array(
+      'name' => _x( 'Core Capabilities', 'taxonomy general name' ),
+      'singular_name' => _x( 'Core Capability', 'taxonomy singular name' ),
+      'search_items' =>  __( 'Search Core Capabilities' ),
+      'all_items' => __( 'All Core Capabilities' ),
+      'parent_item' => __( 'Parent Core Capability' ),
+      'parent_item_colon' => __( 'Parent Core Capability:' ),
+      'edit_item' => __( 'Edit Core Capability' ),
+      'update_item' => __( 'Update Core Capability' ),
+      'add_new_item' => __( 'Add New Core Capability' ),
+      'new_item_name' => __( 'New Core Capability Name' ),
+      'menu_name' => __( 'Core Capabilities' ),
+    ),
+    // Control the slugs used for this taxonomy
+    'rewrite' => array(
+      'slug' => 'core_capabilities', // This controls the base slug that will display before each term
+      'with_front' => false, // Don't display the category base before "/locations/"
+      'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+    ),
+  ));
+}
+add_action( 'init', 'add_custom_taxonomies', 0 );
+
+/************* CUSTOM TAXONOMIES (Filter Posts by Custom Taxonomy in Admin) *************/
+
+function pippin_add_taxonomy_filters() {
+  global $typenow;
+ 
+  // an array of all the taxonomyies you want to display. Use the taxonomy name or slug
+  $taxonomies = array('core_capabilities');
+ 
+  // must set this to the post type you want the filter(s) displayed on
+  if( $typenow == 'samples' ){
+ 
+    foreach ($taxonomies as $tax_slug) {
+      $tax_obj = get_taxonomy($tax_slug);
+      $tax_name = $tax_obj->labels->name;
+      $terms = get_terms($tax_slug);
+      if(count($terms) > 0) {
+        echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
+        echo "<option value=''>Show All $tax_name</option>";
+        foreach ($terms as $term) { 
+          echo '<option value='. $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '','>' . $term->name .' (' . $term->count .')</option>'; 
+        }
+        echo "</select>";
+      }
+    }
+  }
+}
+add_action( 'restrict_manage_posts', 'pippin_add_taxonomy_filters' );
+
 /************* ACF FEATURED IMAGE *************/
 /*
 function acf_set_featured_image( $value, $post_id, $field ){

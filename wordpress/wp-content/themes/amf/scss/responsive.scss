@@ -23,7 +23,7 @@ Primary use:	Website refresh
  	.msmall { display: none; }
  	.small { display: none; }
  	.medium { display: none; }
- 	.large { display: block; }
+ 	.large { display: block; /*color: red;*/ }
 }
 
 /* MD Medium Desktop */
@@ -34,7 +34,7 @@ Primary use:	Website refresh
  	.xsmall { display: none; }
  	.msmall { display: none; }
  	.small { display: none; }
- 	.medium { display: block; }
+ 	.medium { display: block; /*color: orange;*/ }
  	.large { display: none; }
 }
 
@@ -45,7 +45,7 @@ Primary use:	Website refresh
  	.hamburger-box { display: none!important; }
  	.xsmall { display: none; }
  	.msmall { display: none; }
- 	.small { display: block; }
+ 	.small { display: block; /*color: yellow;*/ }
  	.medium { display: none; }
  	.large { display: none; }
 }
@@ -54,16 +54,19 @@ Primary use:	Website refresh
 @media all and (min-width: 480px) and (max-width: 767px) {
 	.container-fluid { padding: 0 20px; }
 	.xsmall { display: none; }
-	.msmall { display: block; }
+	.msmall { display: block; /*color: green;*/ }
  	.small { display: none; }
  	.medium { display: none; }
  	.large { display: none; }
+
+ 	.col-ms-5 { padding-left: 0; }
+ 	.recentposts li .post-date { font-size: 0.65em; }
 }
 
 /* XS Extra Small Mobile */
 @media all and (max-width: 479px) {
 	.container-fluid { padding: 0 15px; }
-	.xsmall { display: block; }
+	.xsmall { display: block; /*color: blue;*/ }
 	.msmall { display: none; }
  	.small { display: none; }
  	.medium { display: none; }

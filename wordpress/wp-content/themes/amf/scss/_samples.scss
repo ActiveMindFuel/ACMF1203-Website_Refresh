@@ -78,7 +78,7 @@ Primary use:	Website refresh
 
 #samples-slider-module { margin-top: -350px;
 	.slickslider-samples img, { margin: 0 auto!important; }
-	.slide img { border: 1px solid #eee; width: 100%; max-width: 1000px; height: auto; background-color: $black; }
+	.slide img { border: 1px solid #eee; width: 100%; max-width: 800px; height: auto; background-color: $black; }
 	.slide-thumb { /*width: 150px!important; height: 150px!important;*/ margin: 0 10px; &:nth-child(1) { margin-left: 0; } border: 1px solid #eee; text-align: center; img {  width: 100%; height: auto; text-align: center; } }
 	.slider-nav { margin-top: 50px; }
 	.slider-nav .slick-track { width: 100%!important; margin-left: 0!important; }

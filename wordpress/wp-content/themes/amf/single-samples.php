@@ -54,9 +54,9 @@
 							<!-- SAMPLE VIDEO MODULE -->
 							<div class="video-container">
 								<video id="sampleMovie" preload autoplay controls>
-									<source src="<?php echo get_stylesheet_directory_uri(); ?>/samples/interactive/mp4/<?php the_sub_field( 'sample_video' ); ?>.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-									<source src="<?php echo get_stylesheet_directory_uri(); ?>/samples/interactive/ogg/<?php the_sub_field( 'sample_video' ); ?>.oggtheora.ogv" type='video/ogg; codecs="theora, vorbis"' />
-									<source src="<?php echo get_stylesheet_directory_uri(); ?>/samples/interactive/webm/<?php the_sub_field( 'sample_video' ); ?>.webmsd.webm" type='video/webm; codecs="vp8, vorbis"' />
+									<source src="http://activemindfuel.com/samples/interactive/mp4/<?php the_sub_field( 'sample_video' ); ?>.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' /><?php //echo get_stylesheet_directory_uri(); ?>
+									<source src="http://activemindfuel.com/samples/interactive/ogg/<?php the_sub_field( 'sample_video' ); ?>.oggtheora.ogv" type='video/ogg; codecs="theora, vorbis"' />
+									<source src="http://activemindfuel.com/samples/interactive/webm/<?php the_sub_field( 'sample_video' ); ?>.webmsd.webm" type='video/webm; codecs="vp8, vorbis"' />
 									<object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="97%" height="97%">
 										<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
 										<param name="allowFullScreen" value="false" />
@@ -70,7 +70,8 @@
 				</div>
 			</section>
 		<?php } ?>
-	<?php endwhile; endif; ?>
+		
+	
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- SAMPLE DESCRIPTION -->
 	<section id="sample-description">
@@ -78,18 +79,17 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
 					<h1><?php the_title(); ?></h1>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, illum ratione. Consequuntur a debitis dicta, ipsam perferendis fugiat possimus laborum esse quae voluptas. Harum iure quia, voluptate quibusdam explicabo voluptatibus blanditiis doloribus unde magnam culpa atque. Perspiciatis, odit nemo. Blanditiis a eos ipsam accusamus natus dicta hic magnam, commodi delectus.
-					</p>
+					<p><?php the_sub_field( 'sample_full_description' ); ?></p>
 				</div>
 			</div>
 		</div>
 	</section>
+	<?php endwhile; endif; ?>
 	<?php $hastag = get_field( 'tag' ); if( $hastag != '' ) { ?>
 	<section id="tags">
 		<div class="container-fluid">
 			<div class="row">
-				<?php
+				<?php 
 					$args2 = array(
 						'post_type' => 'samples',
 						//'cat' => 4,
@@ -207,7 +207,13 @@
     											?>
     											</span>
     										</div>
-    										<div class="cat-icon pull-right"><span><?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?></span></div>
+    										<div class="cat-icon pull-right">
+    											<span>
+    												<?php $terms = get_the_terms( $post->id, 'core_capabilities' ); 
+    													foreach ( $terms as $term ) { echo $term->name . ' '; 
+    												} ?>
+    											</span>
+    										</div>
     									</div>
 										</div>
 									</div>
