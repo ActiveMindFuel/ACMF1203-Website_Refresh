@@ -61,8 +61,19 @@
 														<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a> </figure>
 													<?php endif; ?>
 													<div class="detail">
-														<h3><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>
-														<p class="details">By <a href="<?php the_author_posts() ?>"><?php the_author(); ?> </a> / On <?php echo get_the_date('F j, Y'); ?> / In <?php the_category(', '); ?></p>
+														<div class="tagcloud"><?php the_category(', '); ?></div>
+														<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+														<p class="post-detail">
+															<div class="date"><span class="post-date"><?php echo get_the_date('F j, Y'); ?></span></div>
+															<div class="social">
+																<ul class="social-sharing">
+																	<li><a target="_blank" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+																	<li><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;title=<?php the_title(); ?>&amp;url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+																	<li><a target="_blank" href="http://twitter.com/share?text=<?php echo urlencode(the_title()); ?>&url=<?php echo urlencode(the_permalink()); ?>" title="Share on Twitter" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+																	<li><a target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+																</ul>
+															</div>
+														</p>
 														<div class="xsmall"><?php my_excerpt(20); ?></div>
 														<div class="msmall"><?php my_excerpt(20); ?></div>
 														<div class="small"><?php my_excerpt(20); ?></div>

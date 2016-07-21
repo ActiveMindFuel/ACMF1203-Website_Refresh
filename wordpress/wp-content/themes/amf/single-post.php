@@ -28,9 +28,9 @@
 											<?php if (has_post_thumbnail()) : ?>
 												<figure> <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a> </figure>
 											<?php endif; ?>
+											<div class="tagcloud"><?php the_category(', '); ?></div>
 											<h3><?php the_title(); ?></h3>
-											<!-- <p class="details">By <a href="<?php //the_author_posts() ?>"><?php //the_author(); ?> </a> / On --><!-- / In <?php //the_category(', '); ?></p> -->
-											<p>
+											<p class="post-detail">
 												<div class="date"><span class="post-date"><?php echo get_the_date('F j, Y'); ?></span></div>
 												<div class="social">
 													<ul class="social-sharing">
@@ -41,7 +41,6 @@
 													</ul>
 												</div>
 											</p>
-
 											<p class="post-padding"><?php the_content(); ?></p>
 										</div>
 									</div>

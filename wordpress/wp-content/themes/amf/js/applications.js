@@ -80,6 +80,12 @@ jQuery(document).ready(function($){
 	/* ---------------------------------------------------------------------
 	[2. Custom jQuery] */
 
+	//Thoughtfuel first word style
+	$('h3').each(function(){
+  		var me = $(this);
+  		me.html( me.text().replace(/(^\w+)/,'<span>$1</span>') );
+  	});
+
 	//pill tabs (samples menu)
 	$('#samples-thumbnails-module .nav-pills a').click(function (e) {
 		e.preventDefault()
@@ -114,8 +120,8 @@ jQuery(document).ready(function($){
 		});
 	}
   
-  $(document).ready(function(){
+  	$(document).ready(function(){
 		iframeModalOpen();
-  });
+  	});
 
 });

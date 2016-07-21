@@ -82,14 +82,14 @@ Primary use:	Website refresh
 .opensans-reg, html, body, .post-thumbnail .page-title {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
+.opensans-semi, .thumbnail .caption h3, .thumbnail-horiz .caption h3, h3 span, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
   font-family: 'open_sanssemibold_italic'; }
 
 /* Great Vibes (italic) */
-.greatvibes {
+.greatvibes, #articles-module .post-thumbnail h3, #articles-module .post-thumbnail-featured h3 {
   font-family: 'great_vibesregular'; }
 
 /* ---------------------------------------------------------------------
@@ -173,6 +173,9 @@ html, body {
   padding: 0;
   font-size: 16px;
   color: #222; }
+
+a {
+  text-decoration: none !important; }
 
 .container-fluid {
   max-width: 1420px;
@@ -591,14 +594,14 @@ Primary use:	Website refresh
 .opensans-reg, html, body, .post-thumbnail .page-title {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
+.opensans-semi, .thumbnail .caption h3, .thumbnail-horiz .caption h3, h3 span, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
   font-family: 'open_sanssemibold_italic'; }
 
 /* Great Vibes (italic) */
-.greatvibes {
+.greatvibes, #articles-module .post-thumbnail h3, #articles-module .post-thumbnail-featured h3 {
   font-family: 'great_vibesregular'; }
 
 /* ---------------------------------------------------------------------
@@ -682,6 +685,9 @@ html, body {
   padding: 0;
   font-size: 16px;
   color: #222; }
+
+a {
+  text-decoration: none !important; }
 
 .container-fluid {
   max-width: 1420px;
@@ -794,7 +800,7 @@ section {
   background-color: #f0347f;
   padding: 50px 0;
   width: 100%;
-  height: 400px; }
+  height: 300px; }
 
 .header-img {
   text-align: center; }
@@ -985,14 +991,14 @@ Primary use:	Website refresh
 .opensans-reg, html, body, .post-thumbnail .page-title {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
+.opensans-semi, .thumbnail .caption h3, .thumbnail-horiz .caption h3, h3 span, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
   font-family: 'open_sanssemibold_italic'; }
 
 /* Great Vibes (italic) */
-.greatvibes {
+.greatvibes, #articles-module .post-thumbnail h3, #articles-module .post-thumbnail-featured h3 {
   font-family: 'great_vibesregular'; }
 
 /* ---------------------------------------------------------------------
@@ -1076,6 +1082,9 @@ html, body {
   padding: 0;
   font-size: 16px;
   color: #222; }
+
+a {
+  text-decoration: none !important; }
 
 .container-fluid {
   max-width: 1420px;
@@ -1249,50 +1258,60 @@ section {
       .thumbnail .caption .cat-icon span {
         font-size: 0.6em !important; }
 
-.thumbnail .cat {
-  padding: 0;
-  border-radius: 0;
-  -webkit-box-shadow: 0px 3px 3px 1px rgba(51, 51, 51, 0.03);
-  -moz-box-shadow: 0px 3px 3px 1px rgba(51, 51, 51, 0.03);
-  box-shadow: 0px 3px 3px 1px rgba(51, 51, 51, 0.03); }
-  .thumbnail .cat .cat .caption {
-    padding-bottom: 0px !important;
-    margin-bottom: 0px !important; }
+.thumbnail-horiz {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  height: 99px;
+  overflow: hidden;
+  margin-bottom: 10px; }
+  .thumbnail-horiz img {
+    height: 99px;
+    max-height: 99px;
+    width: 100%; }
+  .thumbnail-horiz .caption {
+    padding-bottom: 0;
+    margin-bottom: 0; }
+    .thumbnail-horiz .caption h3 {
+      font-size: 1em;
+      margin-top: 10px;
+      margin-bottom: 7px; }
+    .thumbnail-horiz .caption span {
+      color: #999;
+      margin-top: -5px; }
+    .thumbnail-horiz .caption .thumb-title span {
+      font-size: 0.8em;
+      line-height: 2em !important; }
+    .thumbnail-horiz .caption .cat-icon {
+      margin-top: 5px;
+      margin-right: 10px;
+      padding: 0px 10px;
+      padding-bottom: 4px;
+      border-radius: 5px;
+      border: 1px solid transparent;
+      background-color: #f5f5f5; }
+      .thumbnail-horiz .caption .cat-icon span {
+        font-size: 0.6em !important; }
+  .thumbnail-horiz .col-xs-7, .thumbnail-horiz .col-ms-7, .thumbnail-horiz .col-sm-7, .thumbnail-horiz .col-md-7, .thumbnail-horiz .col-lg-7 {
+    padding-left: 0; }
 
-.cat .img-container {
-  overflow: hidden; }
+/*
+.thumbnail .cat { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey-dk,0.03));
+	.cat .caption { padding-bottom: 0px!important; margin-bottom: 0px!important;
+	}
+}
+#sample-description .thumbnail-container { height: 99px; }
+.cat .img-container { overflow: hidden; }
+.cat { img { width: 100%; height: 100%!important; } }
+.cat h3 { font-size: 1.10em; margin-top: 0px!important; margin-bottom: 0px!important; @extend .opensans-semi; }
+.cat span { color: $font-alt; font-weight: 400; }
+.cat .cat-icon { margin-right: 10px; padding: 0px 0px; border-radius: 25px; border: 1px solid transparent; background-color: $grey; }
+.cat .col-xs-7 { padding-left: 0!important; padding-right: 0!important; }
+.cat .col-xs-3 { padding-left: 0!important; padding-right: 0!important; }
 
-.cat img {
-  width: 100%; }
-
-.cat h3 {
-  font-size: 1.10em;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important; }
-
-.cat span {
-  /*font-size: 0.725em;*/
-  color: #999;
-  font-weight: 400;
-  /*line-height: 0.25em!important;*/ }
-
-.cat .cat-icon {
-  /*margin-top: 0px!important;*/
-  margin-right: 10px;
-  padding: 0px 0px;
-  border-radius: 25px;
-  border: 1px solid transparent;
-  background-color: #f5f5f5;
-  /*font-size: 0.8em;*/ }
-
-.cat .col-xs-7 {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
-
-.cat .col-xs-3 {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
-
+#tags .col-xs-5,#tags .col-sm-5,#tags .col-md-5,#tags .col-lg-5 { padding-left: 15px; padding-right: 0; }
+#tags .col-xs-7,#tags .col-sm-7,#tags .col-md-7,#tags .col-lg-7 { padding-left: 0px; padding-right: 15px; }
+#tags .thumbnail { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75)); }
+*/
 /* ---------------------------------------------------------------------
 [3. Samples Slider] */
 #samples-slider-module {
@@ -1338,7 +1357,7 @@ section {
     text-align: center; }
   #samples-video-module video, #samples-capabilities_video-module video {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     border: 1px solid #ddd;
     background-color: #000;
     -webkit-box-shadow: 0px 3px 3px 1px rgba(245, 245, 245, 0.75);
@@ -1348,7 +1367,8 @@ section {
 /* ---------------------------------------------------------------------
 [3. Samples Description] */
 #sample-description {
-  text-align: center; }
+  text-align: center;
+  margin-top: -30px !important; }
   #sample-description h1 {
     padding-bottom: 20px; }
 
@@ -1442,14 +1462,14 @@ Primary use:	Website refresh
 .opensans-reg, html, body, .post-thumbnail .page-title {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
+.opensans-semi, .thumbnail .caption h3, .thumbnail-horiz .caption h3, h3 span, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
   font-family: 'open_sanssemibold_italic'; }
 
 /* Great Vibes (italic) */
-.greatvibes {
+.greatvibes, #articles-module .post-thumbnail h3, #articles-module .post-thumbnail-featured h3 {
   font-family: 'great_vibesregular'; }
 
 /* ---------------------------------------------------------------------
@@ -1533,6 +1553,9 @@ html, body {
   padding: 0;
   font-size: 16px;
   color: #222; }
+
+a {
+  text-decoration: none !important; }
 
 .container-fluid {
   max-width: 1420px;
@@ -1629,6 +1652,8 @@ section {
 [1. Thoughtfuel] */
 #articles-module {
   background-color: #f8f8f8; }
+  #articles-module a:hover {
+    color: #f0347f; }
   #articles-module .article-container {
     background-color: #ccc; }
   #articles-module .sidebar-container {
@@ -1643,7 +1668,10 @@ section {
     box-shadow: 0px 3px 3px 1px rgba(51, 51, 51, 0.03);
     background-color: #fff; }
     #articles-module .post-thumbnail h3, #articles-module .post-thumbnail-featured h3 {
-      padding: 0 20px; }
+      padding: 0 20px;
+      margin-top: 7px;
+      font-size: 1.75em !important;
+      text-transform: capitalize; }
     #articles-module .post-thumbnail p, #articles-module .post-thumbnail-featured p {
       padding: 0 20px; }
     #articles-module .post-thumbnail img, #articles-module .post-thumbnail-featured img {
@@ -1669,7 +1697,7 @@ section {
     padding-right: 7px; }
 
 .post-padding {
-  padding: 5px 0 !important; }
+  padding: 0px 0 !important; }
 
 .detail {
   height: 300px;
@@ -1692,6 +1720,16 @@ section {
 
 .social {
   margin-left: -20px !important; }
+
+.post .tagcloud {
+  padding-left: 20px;
+  padding-top: 7px; }
+
+.post-detail {
+  margin-top: -5px; }
+
+h3 span {
+  text-transform: uppercase !important; }
 
 /* ---------------------------------------------------------------------
 [2. Sidebar] */
@@ -1887,14 +1925,14 @@ Primary use:	Website refresh
 .opensans-reg, html, body, .post-thumbnail .page-title {
   font-family: 'open_sansregular'; }
 
-.opensans-semi, .thumbnail .caption h3, .cat h3, .widgettitle {
+.opensans-semi, .thumbnail .caption h3, .thumbnail-horiz .caption h3, h3 span, .widgettitle {
   font-family: 'open_sanssemibold'; }
 
 .opensans-semi-ital {
   font-family: 'open_sanssemibold_italic'; }
 
 /* Great Vibes (italic) */
-.greatvibes {
+.greatvibes, #articles-module .post-thumbnail h3, #articles-module .post-thumbnail-featured h3 {
   font-family: 'great_vibesregular'; }
 
 /* ---------------------------------------------------------------------
@@ -1978,6 +2016,9 @@ html, body {
   padding: 0;
   font-size: 16px;
   color: #222; }
+
+a {
+  text-decoration: none !important; }
 
 .container-fluid {
   max-width: 1420px;

@@ -1220,6 +1220,15 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
+	"\/page-capability.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/page-capability.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/page-custom.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1638,6 +1647,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/single-capabilities.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/single-capabilities.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/single-custom_type.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1758,7 +1776,7 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Interactive Director",
+"lastSavedByUser": "Yahya",
 "manualImportLinks": {
 	},
 "projectAttributes": {

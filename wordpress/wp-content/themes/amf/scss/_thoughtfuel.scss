@@ -22,11 +22,12 @@ Primary use:	Website refresh
 [1. Thoughtfuel] */
 
 #articles-module { background-color: $canvas; 
+	a:hover { color: $pink; }
 	.article-container { background-color: #ccc; }
 	.sidebar-container { background-color: $red; width: 100%; }
 	//.post img { width: 100%; height: auto; }
 	.post-thumbnail,.post-thumbnail-featured { border: 1px solid $outline; padding-bottom: 20px; margin-bottom: 30px; @include box-shadow(0px 3px 3px 1px rgba($grey-dk,0.03)); background-color: $white; 
-		h3 { padding: 0 20px; }
+		h3 { padding: 0 20px; margin-top: 7px; font-size: 1.75em!important; @extend .greatvibes; text-transform: capitalize; }
 		p { padding: 0 20px; }
 		img { width: 100%; max-width: 1200px; height: auto; border-bottom: 1px solid rgba($outline, 0.5); }
 	}
@@ -34,12 +35,16 @@ Primary use:	Website refresh
 	.post-thumbnail { height: 100%; }
 }
 .post-date { font-size: 0.725em; color: $font-alt; text-transform: uppercase; &:before { content: '\f073'; font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: none; padding-right: 7px; } }
-.post-padding { padding: 5px 0!important; }
+.post-padding { padding: 0px 0!important; }
 .detail { height: 300px; overflow: hidden; }
 .social-sharing li { display: inline-block; padding: 4px!important; font-size: 0.8em; a { color: $font-alt; &:hover { color: $pink; } } }
 .date,.social { display: inline-block; }
 .date { margin-left: 20px; }
 .social { margin-left: -20px!important; }
+.post .tagcloud { padding-left: 20px; padding-top: 7px; }
+.post-detail { margin-top: -5px; }
+
+h3 span { @extend .opensans-semi; text-transform: uppercase!important; }
 
 /* ---------------------------------------------------------------------
 [2. Sidebar] */

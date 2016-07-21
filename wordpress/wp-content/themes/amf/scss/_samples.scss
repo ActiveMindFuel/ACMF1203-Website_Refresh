@@ -60,18 +60,35 @@ Primary use:	Website refresh
 		.cat-icon { margin-top: 5px; padding: 0px 10px; padding-bottom: 4px; border-radius: 5px; border: 1px solid transparent; background-color: $grey; span { font-size: 0.6em!important; } }
 	}
 }
+
+.thumbnail-horiz { border: 1px solid $outline; background-color: $white; height: 99px; overflow: hidden; margin-bottom: 10px;
+	img { height: 99px; max-height: 99px; width: 100%; }
+	.caption { padding-bottom: 0; margin-bottom: 0;
+		h3 { font-size: 1em; margin-top: 10px; margin-bottom: 7px; @extend .opensans-semi; }
+		span { color: $font-alt; margin-top: -5px; }
+		.thumb-title span { font-size: 0.8em; line-height: 2em!important; }
+		.cat-icon { margin-top: 5px; margin-right: 10px; padding: 0px 10px; padding-bottom: 4px; border-radius: 5px; border: 1px solid transparent; background-color: $grey; span { font-size: 0.6em!important; } }
+	}
+	.col-xs-7,.col-ms-7,.col-sm-7,.col-md-7,.col-lg-7 { padding-left: 0; }
+}
+/*
 .thumbnail .cat { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey-dk,0.03));
 	.cat .caption { padding-bottom: 0px!important; margin-bottom: 0px!important;
 	}
 }
+#sample-description .thumbnail-container { height: 99px; }
 .cat .img-container { overflow: hidden; }
-.cat img { width: 100%; }
-//.cat .coption { padding-bottom: 0px!important; margin-bottom: 0px!important; }
+.cat { img { width: 100%; height: 100%!important; } }
 .cat h3 { font-size: 1.10em; margin-top: 0px!important; margin-bottom: 0px!important; @extend .opensans-semi; }
-.cat span { /*font-size: 0.725em;*/ color: $font-alt; font-weight: 400; /*line-height: 0.25em!important;*/ }
-.cat .cat-icon { /*margin-top: 0px!important;*/ margin-right: 10px; padding: 0px 0px; border-radius: 25px; border: 1px solid transparent; background-color: $grey; /*font-size: 0.8em;*/ }
+.cat span { color: $font-alt; font-weight: 400; }
+.cat .cat-icon { margin-right: 10px; padding: 0px 0px; border-radius: 25px; border: 1px solid transparent; background-color: $grey; }
 .cat .col-xs-7 { padding-left: 0!important; padding-right: 0!important; }
 .cat .col-xs-3 { padding-left: 0!important; padding-right: 0!important; }
+
+#tags .col-xs-5,#tags .col-sm-5,#tags .col-md-5,#tags .col-lg-5 { padding-left: 15px; padding-right: 0; }
+#tags .col-xs-7,#tags .col-sm-7,#tags .col-md-7,#tags .col-lg-7 { padding-left: 0px; padding-right: 15px; }
+#tags .thumbnail { padding: 0; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75)); }
+*/
 
 /* ---------------------------------------------------------------------
 [3. Samples Slider] */
@@ -96,12 +113,12 @@ Primary use:	Website refresh
 [3. Samples Video] */
 #samples-video-module,#samples-capabilities_video-module { margin-top: -350px; 
 	.video-container { text-align: center; }
-	video { width: 100%; max-width: 1200px; border: 1px solid #ddd; background-color: $black; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75)); }
+	video { width: 100%; max-width: 1000px; border: 1px solid #ddd; background-color: $black; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75)); }
 }
 
 /* ---------------------------------------------------------------------
 [3. Samples Description] */
-#sample-description { text-align: center; 
+#sample-description { text-align: center; margin-top: -30px!important; 
 	h1 { padding-bottom: 20px; }
 }
 

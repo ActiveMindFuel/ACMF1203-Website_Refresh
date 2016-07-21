@@ -7,7 +7,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="header-img"><?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?></div>
+					<div class="header-img"><?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?><i class="fa fa-lock" aria-hidden="true"></i></div>
 				</div>
 			</div>
 		</div>
@@ -74,17 +74,18 @@
 	
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- SAMPLE DESCRIPTION -->
-	<section id="sample-description">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
-					<h1><?php the_title(); ?></h1>
-					<p><?php the_sub_field( 'sample_full_description' ); ?></p>
+		<section id="sample-description">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+						<h1><?php the_title(); ?></h1>
+						<p><?php the_sub_field( 'sample_full_description' ); ?></p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 	<?php endwhile; endif; ?>
+
 	<?php $hastag = get_field( 'tag' ); if( $hastag != '' ) { ?>
 	<section id="tags">
 		<div class="container-fluid">
@@ -109,11 +110,11 @@
 			
 					<div class="thumbnail-container">
 						<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
-							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-								<div class="thumbnail cat">
+							<div class="col-xs-12 col-ms-6 col-sm-6 col-md-4 col-lg-4">
+								<div class="thumbnail-horiz">
 									<div class="row">
-										<div class="col-xs-5 col-sm-5 col-md-6 col-lg-5"><a href="<?php the_permalink(); ?>"><span class="img-container"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a></span></div>
-										<div class="col-xs-7 col-sm-7 col-md-6 col-lg-7">
+										<div class="col-xs-5 col-ms-5 col-sm-5 col-md-5 col-lg-5"><a href="<?php the_permalink(); ?>"><span class="img-container"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a></span></div>
+										<div class="col-xs-7 col-ms-7 col-sm-7 col-md-7 col-lg-7">
 											<div class="caption">
     										<div class="thumb-title">
     											<h3 class="xsmall">
