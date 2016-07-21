@@ -97,6 +97,13 @@ function bones_ahoy() {
 // let's get this party started
 add_action( 'after_setup_theme', 'bones_ahoy' );
 
+/************* CUSTOM LOGIN *************/
+
+function my_custom_login() {
+  echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login/custom-login-styles.css" />';
+}
+add_action('login_head', 'my_custom_login');
+
 /************* Excerpt Length *************/
 
 function new_excerpt_length($length) {
