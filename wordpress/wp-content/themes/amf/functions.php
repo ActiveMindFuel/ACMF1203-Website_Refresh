@@ -35,7 +35,9 @@ function bones_ahoy() {
   register_nav_menus( array( 
     'primary' => __( 'Primary Menu', 'bonestheme' ),
     'primary-front' => __( 'Primary-front Menu', 'bonestheme' ),
-    'secondary' => __( 'Capabilities Menu', 'bonestheme' ) )
+    'secondary' => __( 'Samples Menu', 'bonestheme' ),
+    'thirdary-front' => __( 'Capabilities-front Menu', 'bonestheme' ),
+    'thirdary' => __( 'Capabilities Menu', 'bonestheme' ) )
   );
 
   // launching operation cleanup
@@ -205,7 +207,7 @@ if ( ! isset( $content_width ) ) {
  */
 function add_custom_taxonomies() {
   // Add new "Locations" taxonomy to Posts
-  register_taxonomy('core_capabilities', 'samples', array(
+  register_taxonomy('core_capabilities', array( 'samples','capabilities','casestudies' ), array(
     // Hierarchical taxonomy (like categories)
     'hierarchical' => true,
     // This array of options controls the labels displayed in the WordPress Admin UI
