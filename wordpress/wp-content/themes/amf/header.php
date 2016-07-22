@@ -57,7 +57,7 @@
      						   <div class="nav-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/svg/nav-logo.svg" alt="Active Mind Fuel Logo"></div>
      						</a>
      					</div>
-     					<?php if ( is_front_page() ) {	
+     					<?php $post = get_post(); if ( is_front_page() ) {	
     						wp_nav_menu( array(
      						 	'menu'              => 'primary-front',
      						 	'theme_location'    => 'primary-front',
@@ -70,7 +70,33 @@
      						 	'walker'            => new wp_bootstrap_navwalker())
      						);
      					
-     					} else {
+     					} elseif ( is_page('capabilities') ) {    
+                            wp_nav_menu( array(
+                                'menu'              => 'thirdary-front',
+                                'theme_location'    => 'thirdary-front',
+                                'depth'             => 2,
+                                'container'         => 'div',
+                                'container_class'   => 'collapse navbar-collapse',
+                                'container_id'      => 'bs-example-navbar-collapse-1',
+                                'menu_class'        => 'nav navbar-nav navbar-right',
+                                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                                'walker'            => new wp_bootstrap_navwalker())
+                            );
+                        
+                        } elseif ( is_singular('capabilities') ) {    
+                            wp_nav_menu( array(
+                                'menu'              => 'thirdary',
+                                'theme_location'    => 'thirdary',
+                                'depth'             => 2,
+                                'container'         => 'div',
+                                'container_class'   => 'collapse navbar-collapse',
+                                'container_id'      => 'bs-example-navbar-collapse-1',
+                                'menu_class'        => 'nav navbar-nav navbar-right',
+                                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                                'walker'            => new wp_bootstrap_navwalker())
+                            );
+                        
+                        } else {
      						wp_nav_menu( array(
      						 	'menu'              => 'primary',
      						 	'theme_location'    => 'primary',

@@ -749,7 +749,7 @@
 			<div class="row">
 				<?php
 					$args2 = array(
-						'post_type' => 'samples',
+						'post_type' => 'casestudies',
 						'tax_query' => array(
   							array(
   							  'taxonomy' => 'core_capabilities',

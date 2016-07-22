@@ -97,7 +97,7 @@
 				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content active" id="interactive">
 					<?php
 						$args1 = array(
-							'post_type' => 'samples',
+							'post_type' => 'capabilities',
 							'tax_query' => array(
   								array(
   								  'taxonomy' => 'core_capabilities',
@@ -227,7 +227,7 @@
 				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="motion">
 					<?php
 						$args2 = array(
-							'post_type' => 'samples',
+							'post_type' => 'capabilities',
 							'tax_query' => array(
   								array(
   								  'taxonomy' => 'core_capabilities',
@@ -356,7 +356,7 @@
 				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="environments">
 					<?php
 						$args2 = array(
-							'post_type' => 'samples',
+							'post_type' => 'capabilities',
 							'tax_query' => array(
   								array(
   								  'taxonomy' => 'core_capabilities',
@@ -485,7 +485,7 @@
 				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="web">
 					<?php
 						$args2 = array(
-							'post_type' => 'samples',
+							'post_type' => 'capabilities',
 							'tax_query' => array(
   								array(
   								  'taxonomy' => 'core_capabilities',
@@ -614,7 +614,7 @@
 				<div role="tabpanel" class="tab-pane tabs-module-box-element tabs-module-two-content" id="print">
 					<?php
 						$args2 = array(
-							'post_type' => 'samples',
+							'post_type' => 'capabilities',
 							'tax_query' => array(
   								array(
   								  'taxonomy' => 'core_capabilities',
@@ -747,138 +747,13 @@
 	<section id="case-studies-module">
 		<div class="container-fluid">
 			<div class="row">
-				<?php
-					$args2 = array(
-						'post_type' => 'samples',
-						'tax_query' => array(
-  							array(
-  							  'taxonomy' => 'core_capabilities',
-  							  'field' => 'slug',
-  							  'terms' => 'case-study'
-  							)
-  						),
-						//'cat' => '4',
-						'post_status' => 'publish',
-						'posts_per_page' => 3,
-						'order' => 'DESC',
-						'paged' => get_query_var('page')
-					);
-
-					$loop = new WP_Query( $args2 );
-					if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
-				?>
-					<div class="thumbnail-container">
-						<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
-							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-								<div class="thumbnail">
-								<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
-    								<div class="caption">
-    									<div class="thumb-title">
-    										<h3 class="xsmall">
-    											<?php 
-    												$thetitle = $post->post_title;
-													$getlength = strlen($thetitle);
-													$thelength = 28;
-													echo substr($thetitle, 0, $thelength);
-													if ($getlength > $thelength) echo "..."; 
-												?>
-    										</h3>
-    										<span class="xsmall">
-    										<?php 
-    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
-												$getlength = strlen($thetitle);
-												$thelength = 40;
-												echo substr($thetitle, 0, $thelength);
-												if ($getlength > $thelength) echo "...";
-    										?>
-    										</span>
-    										<h3 class="msmall">
-    											<?php 
-    												$thetitle = $post->post_title;
-													$getlength = strlen($thetitle);
-													$thelength = 15;
-													echo substr($thetitle, 0, $thelength);
-													if ($getlength > $thelength) echo "..."; 
-												?>
-    										</h3>
-    										<span class="msmall">
-    										<?php 
-    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
-												$getlength = strlen($thetitle);
-												$thelength = 20;
-												echo substr($thetitle, 0, $thelength);
-												if ($getlength > $thelength) echo "...";
-    										?>
-    										</span>
-    										<h3 class="small">
-    											<?php 
-    												$thetitle = $post->post_title;
-													$getlength = strlen($thetitle);
-													$thelength = 16;
-													echo substr($thetitle, 0, $thelength);
-													if ($getlength > $thelength) echo "..."; 
-												?>
-    										</h3>
-    										<span class="small">
-    										<?php 
-    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
-												$getlength = strlen($thetitle);
-												$thelength = 23;
-												echo substr($thetitle, 0, $thelength);
-												if ($getlength > $thelength) echo "...";
-    										?>
-    										</span>
-    										<h3 class="medium">
-    											<?php 
-    												$thetitle = $post->post_title;
-													$getlength = strlen($thetitle);
-													$thelength = 15;
-													echo substr($thetitle, 0, $thelength);
-													if ($getlength > $thelength) echo "..."; 
-												?>
-    										</h3>
-    										<span class="medium">
-    										<?php 
-    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
-												$getlength = strlen($thetitle);
-												$thelength = 22;
-												echo substr($thetitle, 0, $thelength);
-												if ($getlength > $thelength) echo "...";
-    										?>
-    										</span>
-    										<h3 class="large">
-    											<?php 
-    												$thetitle = $post->post_title;
-													$getlength = strlen($thetitle);
-													$thelength = 20;
-													echo substr($thetitle, 0, $thelength);
-													if ($getlength > $thelength) echo "..."; 
-												?>
-    										</h3>
-    										<span class="large">
-    										<?php 
-    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
-												$getlength = strlen($thetitle);
-												$thelength = 28;
-												echo substr($thetitle, 0, $thelength);
-												if ($getlength > $thelength) echo "...";
-    										?>
-    										</span>
-    									</div>
-    									<div class="cat-icon pull-right">
-    										<span>
-    											<?php $terms = get_the_terms( $post->id, 'core_capabilities' ); 
-    												foreach ( $terms as $term ) { echo $term->name . ' '; 
-    											} ?>
-    										</span>
-    									</div>
-    								</div>
-    							</div>
-							</div>
-						<?php endwhile; endif; ?>
+				<?php if( have_rows( 'presentation' ) ): while( have_rows( 'presentation' ) ): the_row(); ?>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<blockquote><?php the_sub_field( 'presentation_header' ); ?></blockquote>
+						<cite><?php the_sub_field( 'presentation_cite' ) ?></cite>
+						<p><?php the_sub_field( 'presentation_content' ) ?></p>
 					</div>
-				<?php endwhile; wp_reset_postdata(); ?>
-				<?php endif; ?>
+				<?php endwhile; endif; ?>
 			</div>
 		</div>
 	</section>
