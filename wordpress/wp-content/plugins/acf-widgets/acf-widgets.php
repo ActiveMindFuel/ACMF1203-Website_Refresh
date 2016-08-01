@@ -1,11 +1,11 @@
 <?php
 /**
 * Plugin Name: ACF Widgets
-* Plugin URI: http://acfwidgets.com
+* Plugin URI: https://acfwidgets.com
 * Description: A plugin to easily create widgets for use with ACF and add custom fields to any widget on your site.
-* Version: 1.9
+* Version: 1.10
 * Author: Daron Spence
-* Author URI: http://daronspence.com
+* Author URI: http://acfwidgets.com
 * Text Domain: acfw
 * License: GPL2+
 */
@@ -15,8 +15,8 @@ if ( !defined('ABSPATH') ){
 	die();
 }
 
-define( 'ACFW_VERSION', '1.9' );
-define( 'ACFW_STORE_URL', 'http://acfwidgets.com' );
+define( 'ACFW_VERSION', '1.10' );
+define( 'ACFW_STORE_URL', 'https://acfwidgets.com' );
 define( 'ACFW_ITEM_NAME', 'ACF Widgets' );
 define( 'ACFW_FILE' , __FILE__ );
 
@@ -32,7 +32,7 @@ function acfw_globals(){
 include_once('includes/acf-404.php');
 
 
-$acfw_default_widgets = array('pages', 'calendar', 'archives', 'meta', 'search', 'text', 
+$GLOBALS['acfw_default_widgets'] = array('pages', 'calendar', 'archives', 'meta', 'search', 'text', 
 	'categories', 'recent-posts', 'recent-comments', 'rss', 'tag_cloud', 'nav_menu');
 
 include_once('includes/helper-functions.php');

@@ -22,15 +22,31 @@ Primary use:	Website refresh
 
 /* ---------------------------------------------------------------------
 [1. Newsletter] */
-
 #newsletter { padding: 50px 0; text-align: center; margin: 0; }
-.newsletter-container { background-color: $newsletter; }
-.newsletter-input form { text-align: center!important; margin: 0 auto!important; }
+.newsletter-input { margin: 0 auto; /*background-color: $orange;*/ }
+.gform_wrapper form { width: 80%; margin: 0 auto; /*background-color: $purple;*/ }
+.gform_heading { display: none; }
+.gfield { width: 75%; padding-right: 35px!important; 
+ 	input { width: 100%!important; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border: 1px solid transparent; }
+ 	.medium { display: inline-block!important; width: 100%; padding-left: 10px!important; }
+ }
+.gform_footer { float: right; display: inline-block; /*background-color: $orange;*/ width: 25%; margin-top: -50px!important; 
+	.gform_button { margin-top: 5px; margin-left: -35px!important; height: 34px; z-index: 100!important; padding-right: 0;
+		border-top-right-radius: 5px; border-bottom-right-radius: 5px; background-color: $blue; border: none;
+		color: $white; font-weight: 700; font-size: 1em!important; padding-left: 15px; padding-right: 15px; &:hover { background-color: darken($blue, 10); }
+	}
+ }
+
+//#newsletter { padding: 50px 0; text-align: center; margin: 0; }
+//.medium { display: inline-block!important; }
+/*.newsletter-container { background-color: $newsletter; }
+.newsletter-input { border: 1px solid $outline; form { text-align: center!important; margin: 0 auto!important; } }
 .gform_title { display: none; }
 .gform_wrapper { text-align: center!important; form { text-align: center!important; max-width: 500px; margin-top: 30px!important; } }
 .ginput_container input { padding-left: 10px!important; }
 .gform_button { margin-top: 5px; margin-left: -15px; height: 32.75px; 
 	border-top-right-radius: 7px; border-bottom-right-radius: 7px; background-color: $blue; border: none;
 	color: $white; font-weight: 700; font-size: 1em!important; padding-left: 20px; padding-right: 20px;
-}
-.gform_body input { border-top-left-radius: 7px; border-bottom-left-radius: 7px; border: 1px solid $outline; height: 32.75px; border-right: none; }
+}*/
+//.gform_body input { border-top-left-radius: 7px; border-bottom-left-radius: 7px; border: 1px solid $outline; height: 32.75px; border-right: none; }
+//.gf_simple_horizontal

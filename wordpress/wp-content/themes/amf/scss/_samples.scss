@@ -117,6 +117,12 @@ Primary use:	Website refresh
 }
 
 /* ---------------------------------------------------------------------
+[3. Samples Capabilities] */
+object { width: 100%!important; height: 100%!important; min-height: 720px; /*background-color: black;*/ overflow: auto; }
+#flashContent { width: 100%; height: 100%; background-color: black!important; }
+.capability-sample { padding: 0; border: 1px solid $outline; border-radius: 0; @include box-shadow(0px 3px 3px 1px rgba($grey,0.75)); }
+
+/* ---------------------------------------------------------------------
 [3. Samples Description] */
 #sample-description { text-align: center; margin-top: -30px!important; 
 	h1 { padding-bottom: 20px; }

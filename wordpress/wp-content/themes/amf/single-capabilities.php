@@ -3,7 +3,7 @@
 	<!-- HEADER -->
 	
 	
-	<section id="samples-module" class="interactive-header">
+	<section id="samples-module" class="capability-header">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -17,7 +17,7 @@
 	<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
 		<?php 
            $images = get_sub_field( 'sample_images' ); 
-           $video = get_sub_field( 'sample_video' );
+           $video = get_sub_field( 'sample_capability_video' );
            if( $images ) {
         ?>
 			<section id="samples-slider-module">
@@ -52,18 +52,8 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<!-- SAMPLE VIDEO MODULE -->
-							<div class="video-container">
-								<video id="sampleMovie" preload autoplay controls>
-									<source src="http://activemindfuel.com/samples/interactive/mp4/<?php the_sub_field( 'sample_video' ); ?>.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' /><?php //echo get_stylesheet_directory_uri(); ?>
-									<source src="http://activemindfuel.com/samples/interactive/ogg/<?php the_sub_field( 'sample_video' ); ?>.oggtheora.ogv" type='video/ogg; codecs="theora, vorbis"' />
-									<source src="http://activemindfuel.com/samples/interactive/webm/<?php the_sub_field( 'sample_video' ); ?>.webmsd.webm" type='video/webm; codecs="vp8, vorbis"' />
-									<object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="97%" height="97%">
-										<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
-										<param name="allowFullScreen" value="false" />
-										<param name="wmode" value="transparent" />
-										<param name="flashvars" value='config={"clip":{"url":"flv/ElementsWeb.flv","autoPlay":false,"autoBuffering":true}}' />
-									</object>
-								</video>
+							<div> 
+								<object class="capability-sample" type="text/html" data="<?php the_sub_field( 'sample_capability_video' ); ?>" style="width:<?php the_sub_field( 'sample_capability_width' ); ?>;height:<?php the_sub_field( 'sample_capability_height' ); ?>;"></object><!-- http://amfclient.com/flash/elementsofher/interactive.html -->
 							</div>
 						</div>
 					</div>

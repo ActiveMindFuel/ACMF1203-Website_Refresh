@@ -758,20 +758,161 @@
 		</div>
 	</section>
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- CASE STUDIES MODULE -->
+	<section id="case-studies-module">
+		<div class="container-fluid">
+			<div class="row">
+				<?php
+					$args2 = array(
+						'post_type' => 'casestudies',
+						'tax_query' => array(
+  							array(
+  							  'taxonomy' => 'core_capabilities',
+  							  'field' => 'slug',
+  							  'terms' => 'case-study'
+  							)
+  						),
+						//'cat' => '4',
+						'post_status' => 'publish',
+						'posts_per_page' => 3,
+						'order' => 'DESC',
+						'paged' => get_query_var('page')
+					);
+
+					$loop = new WP_Query( $args2 );
+					if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); echo $title;
+				?>
+					<div class="thumbnail-container">
+						<?php if( have_rows( 'samples' ) ): while( have_rows( 'samples' ) ): the_row(); ?>
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<div class="thumbnail">
+								<a href="<?php the_permalink(); ?>"><img src="<?php the_sub_field( 'sample_thumbnail_image' ); ?>" alt="..."></a>
+    								<div class="caption">
+    									<div class="thumb-title">
+    										<h3 class="xsmall">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 28;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="xsmall">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 40;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    										<h3 class="msmall">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 15;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="msmall">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 20;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    										<h3 class="small">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 16;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="small">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 23;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    										<h3 class="medium">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 15;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="medium">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 22;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    										<h3 class="large">
+    											<?php 
+    												$thetitle = $post->post_title;
+													$getlength = strlen($thetitle);
+													$thelength = 20;
+													echo substr($thetitle, 0, $thelength);
+													if ($getlength > $thelength) echo "..."; 
+												?>
+    										</h3>
+    										<span class="large">
+    										<?php 
+    											$thetitle = get_sub_field( 'sample_thumbnail_description' );
+												$getlength = strlen($thetitle);
+												$thelength = 28;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > $thelength) echo "...";
+    										?>
+    										</span>
+    									</div>
+    									<div class="cat-icon pull-right">
+    										<span>
+    											<?php $terms = get_the_terms( $post->id, 'core_capabilities' ); 
+    												foreach ( $terms as $term ) { echo $term->name . ' '; 
+    											} ?>
+    										</span>
+    									</div>
+    								</div>
+    							</div>
+							</div>
+						<?php endwhile; endif; ?>
+					</div>
+				<?php endwhile; wp_reset_postdata(); ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</section>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- NEWSLETTER MODULE -->
 	<?php get_sidebar( 'newsletter' ); ?>
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!-- CLIENTS MODULE -->
+	<!--
 	<section id="clients-module" class="quote alt">
 		<div class="container-fluid">
 			<div class="row">
-				<?php if( have_rows( 'clients' ) ): while( have_rows( 'clients' ) ): the_row(); ?>
-					<div class="col-xs-4 col-sm-4 col-md-3 col-lg-2"><div class="client-logo"><img src="<?php the_sub_field( 'client_logo' ); ?>" alt="<?php the_sub_field( 'client_name' ); ?>"></div></div>
-				<?php endwhile; endif; ?>
+				<?php //if( have_rows( 'clients' ) ): while( have_rows( 'clients' ) ): the_row(); ?>
+					<div class="col-xs-4 col-sm-4 col-md-3 col-lg-2"><div class="client-logo"><img src="<?php //the_sub_field( 'client_logo' ); ?>" alt="<?php //the_sub_field( 'client_name' ); ?>"></div></div>
+				<?php //endwhile; endif; ?>
 			</div>
 		</div>
 	</section>
-	
+	-->
 <?php get_footer(); ?>
 
-
+<!-- http://amfclient.com/flash/elementsofher/interactive.html -->
